@@ -383,7 +383,7 @@ export default function App() {
         <div className="text-center mb-8 pt-4">
           <Pill>Знакомо?</Pill>
           <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 3.2rem)", fontWeight: 300, color: "#2c2419", fontStyle: "italic" }}>
-            «Я больше так не могу»
+            Если узнаешь себя
           </h2>
         </div>
 
@@ -426,7 +426,6 @@ export default function App() {
 
         {/* Statement card */}
         <div className="mt-20 text-center py-6 px-8">
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#b08d5e", letterSpacing: "0.35em", textTransform: "uppercase" }}>Мы знаем путь</p>
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
           <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 300, color: "#2c2419", letterSpacing: "0.06em", lineHeight: 1 }}>«ВЫХОД ЕСТЬ»</h3>
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
