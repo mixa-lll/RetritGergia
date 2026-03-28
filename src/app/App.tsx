@@ -11,6 +11,12 @@ import painIcon3 from "figma:asset/e9980a983b5daecd3967d6616a0dd951e693f2df.png"
 import painIcon4 from "figma:asset/06b807c9325ff353ef0fd8a170f072520a404a6f.png";
 import painIcon5 from "figma:asset/0a7d4bf408ccd39fc4e494546011fb986f43badc.png";
 import painIcon6 from "figma:asset/34b6d2cec2744b030017e80a5bef98982de1ce9a.png";
+import dayIcon1 from "figma:asset/7b9da75064e355b37fbdac4c8c7b25bc244f88ea.png";
+import dayIcon2 from "figma:asset/d2385a44d94271ac25f04b88457f4e336160b04a.png";
+import dayIcon3 from "figma:asset/06d2654c3e8e53a5073cfb24f0ce61eccde69313.png";
+import dayIcon4 from "figma:asset/0c982a327c5258697d028dc90d7a23dbd70e3484.png";
+import dayIcon5 from "figma:asset/108a7853d1ce297b2dea1c0636f095de577a949a.png";
+import dayIcon6 from "figma:asset/33876ec2f03db1d7d1ba85d83ad4a5792a26a5a9.png";
 import { useState, useEffect, type ReactNode } from "react";
 
 const mountainImage = "https://images.unsplash.com/photo-1761414299347-16e4911f1611?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnZW9yZ2lhJTIwY2F1Y2FzdXMlMjBtb3VudGFpbiUyMGxhbmRzY2FwZSUyMHN1bnNldHxlbnwxfHx8fDE3NzQ1MTQ0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080";
@@ -21,7 +27,7 @@ const R = "28px"; // global bento border-radius
 const days = [
   {
     day: "День 1", date: "3 июня", title: "Заезд и мягкая настройка",
-    emoji: "🌅",
+    emoji: "🌅", icon: dayIcon1,
     items: [
       { time: "15:00–17:00", text: "Заезд участников, размещение на вилле" },
       { time: "17:30–18:30", text: "Круг знакомств и открытие ретрита" },
@@ -31,7 +37,7 @@ const days = [
   },
   {
     day: "День 2", date: "4 июня", title: "Море и звуки",
-    emoji: "🌊",
+    emoji: "🌊", icon: dayIcon2,
     items: [
       { time: "07:30–09:00", text: "Утренняя йога у моря" },
       { time: "09:00–10:00", text: "Завтрак" },
@@ -44,7 +50,7 @@ const days = [
   },
   {
     day: "День 3", date: "5 июня", title: "Горы и традиции",
-    emoji: "⛰️",
+    emoji: "⛰️", icon: dayIcon3,
     items: [
       { time: "07:30–09:00", text: "Утренняя йога" },
       { time: "09:00–10:00", text: "Завтрак" },
@@ -57,7 +63,7 @@ const days = [
   },
   {
     day: "День 4", date: "6 июня", title: "Восстановление",
-    emoji: "🧖",
+    emoji: "🧖", icon: dayIcon4,
     items: [
       { time: "07:30–08:30", text: "Йога" },
       { time: "09:00–10:00", text: "Завтрак" },
@@ -70,7 +76,7 @@ const days = [
   },
   {
     day: "День 5", date: "7 июня", title: "День Силы и источников",
-    emoji: "♨️",
+    emoji: "♨️", icon: dayIcon5,
     items: [
       { time: "07:30–08:30", text: "Йога на море" },
       { time: "09:00–10:00", text: "Завтрак" },
@@ -81,7 +87,7 @@ const days = [
   },
   {
     day: "День 6", date: "8 июня", title: "Завершение",
-    emoji: "🌿",
+    emoji: "🌿", icon: dayIcon6,
     items: [
       { time: "09:00–10:00", text: "Завтрак" },
       { time: "10:00–11:00", text: "Круг завершения" },
@@ -100,7 +106,7 @@ const included = [
   { icon: "📸", text: "Фотосессия на лошадях" },
   { icon: "💆", text: "Биоэнергетический массаж" },
   { icon: "🐴", text: "Иппотерапия" },
-  { icon: "🍞", text: "Мастер-класс по хлебу" },
+  { icon: "🍞", text: "Мастер-класс по изготовлению грузинского хлеба" },
   { icon: "🛁", text: "Баня" },
   { icon: "🗺️", text: "2 экскурсии" },
 ];
@@ -123,8 +129,61 @@ const Pill = ({ children, light = false }: { children: ReactNode; light?: boolea
 
 export default function App() {
   const [openDay, setOpenDay] = useState<number | null>(null);
+  const [openActivity, setOpenActivity] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const activities = [
+    {
+      img: yogaActivity,
+      pill: "🌊 Практика",
+      title: "Йога у моря",
+      descLines: [
+        "Практика соединения тела, дыхания и внимания",
+        "Возвращает баланс, ясность и внутреннюю опору",
+      ],
+    },
+    {
+      img: gongActivity,
+      pill: "🔔 Звук",
+      title: "Гонг-медитация",
+      descLines: [
+        "Глубокое погружение в звук и вибрации",
+        "Перезагружает нервную систему и успокаивает ум",
+      ],
+    },
+    {
+      img: horsesActivity,
+      pill: "🐴 Терапия",
+      title: "Иппотерапия + Фотосессия",
+      descLines: [
+        "Контакт с лошадьми помогает мягко восстановить",
+        "эмоциональное состояние и внутреннее равновесие",
+      ],
+    },
+    {
+      img: mountainImage,
+      pill: "⛰️ Горы",
+      title: "Горы — Гомис Мта",
+      descLines: [
+        "Высота 2100 м над уровнем моря",
+        "Ощущение, будто ты над облаками",
+        "Тишина, воздух и сильная энергия природы",
+      ],
+    },
+    {
+      img: springsImage,
+      pill: "♨️ Источники",
+      title: "Серные источники Нокалакеви",
+      descLines: [
+        "· расслабление тела",
+        "· восстановление суставов и кожи",
+        "· детокс",
+        "· перезапуск нервной системы",
+        "· полное отключение от суеты",
+      ],
+    },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -238,7 +297,7 @@ export default function App() {
                 boxShadow: "0 2px 18px rgba(212,180,131,0.7)",
               }}
             >
-              🇬🇪 Грузия
+              🇬🇪 Грузи��
             </span>
           </div>
           <h1
@@ -262,7 +321,7 @@ export default function App() {
             className="mb-5"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "1.15rem",
+              fontSize: "clamp(1.4rem, 4vw, 1.6rem)",
               fontStyle: "italic",
               color: "rgba(255,255,255,0.6)",
               lineHeight: 1.5,
@@ -576,75 +635,119 @@ export default function App() {
         </div>
         {/* Mobile: simple stack */}
         <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {[
-            { img: yogaActivity,    pill: "🌊 Практика",   title: "Йога на берегу моря" },
-            { img: gongActivity,    pill: "🔔 Звук",        title: "Гонг-медитация" },
-            { img: horsesActivity,  pill: "🐴 Терапия",     title: "Иппотерапия" },
-            { img: mountainImage,   pill: "⛰️ Горы",        title: "Экскурсия в Гомис Мта" },
-            { img: springsImage,    pill: "♨️ Источники",   title: "Серные источники Нокалакеви" },
-          ].map((item, i) => (
-            <div key={i} className="relative overflow-hidden" style={{ borderRadius: R, height: 220 }}>
-              <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute top-4 left-4"><Pill light>{item.pill}</Pill></div>
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="text-white" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400 }}>{item.title}</h3>
+          {activities.map((item, i) => {
+            const isOpen = openActivity === i;
+            return (
+              <div key={i} className="relative overflow-hidden" style={{ borderRadius: R, height: 240 }}>
+                <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700" style={{ transform: isOpen ? "scale(1.04)" : "scale(1)" }} />
+                <div
+                  className="absolute inset-0 transition-all duration-500"
+                  style={{
+                    background: isOpen
+                      ? "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)"
+                      : "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 60%, transparent 100%)",
+                  }}
+                />
+                <div className="absolute top-4 left-4"><Pill light>{item.pill}</Pill></div>
+
+                {/* Plus button */}
+                <button
+                  onClick={() => setOpenActivity(isOpen ? null : i)}
+                  className="absolute top-4 right-4 flex items-center justify-center transition-all duration-300"
+                  style={{
+                    width: 32, height: 32, borderRadius: "50%",
+                    background: isOpen ? "rgba(176,141,94,0.95)" : "rgba(255,255,255,0.18)",
+                    backdropFilter: "blur(6px)",
+                    border: "1px solid rgba(255,255,255,0.35)",
+                    cursor: "pointer",
+                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                  }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M6 1V11M1 6H11" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                </button>
+
+                {/* Bottom: title + desc overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="text-white mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 400 }}>{item.title}</h3>
+                  <div style={{ maxHeight: isOpen ? "220px" : "0", overflow: "hidden", transition: isOpen ? "max-height 0.45s ease" : "max-height 0.3s ease" }}>
+                    <div className="flex flex-col" style={{ gap: "3px" }}>
+                      {item.descLines.map((line, j) => (
+                        <p key={j} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: "0.92rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.45, letterSpacing: "0.01em" }}>{line}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Desktop: asymmetric bento */}
+        {/* Desktop: asymmetric bento — hover reveals desc */}
         <div className="hidden md:grid gap-3" style={{ gridTemplateColumns: "repeat(3, 1fr)", gridTemplateRows: "360px 260px 260px" }}>
-          <div className="group relative overflow-hidden cursor-pointer" style={{ gridColumn: "1 / 3", gridRow: "1 / 2", borderRadius: R }}>
-            <img src={yogaActivity} alt="Йога" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <div className="absolute top-5 left-5"><Pill light>🌊 Практика</Pill></div>
-            <div className="absolute bottom-0 left-0 right-0 p-7">
-              <h3 className="text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400 }}>Йога на берегу моря</h3>
-              <p className="text-white/70 text-sm leading-relaxed max-w-md opacity-0 translate-y-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}>
-                Практика соединения тела, дыхания и внимания — возвращает в состояние баланса и присутствия
-              </p>
-            </div>
-          </div>
-          <div className="group relative overflow-hidden cursor-pointer" style={{ gridColumn: "3 / 4", gridRow: "1 / 3", borderRadius: R }}>
-            <img src={gongActivity} alt="Гонг" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute top-5 left-5"><Pill light>🔔 Звук</Pill></div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400 }}>Гонг-медитация</h3>
-              <p className="text-white/65 text-sm leading-relaxed opacity-0 translate-y-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}>
-                Перезагрузка нервной системы и возврат к внутренней тишине
-              </p>
-            </div>
-          </div>
-          <div className="group relative overflow-hidden cursor-pointer" style={{ gridColumn: "1 / 2", gridRow: "2 / 3", borderRadius: R }}>
-            <img src={horsesActivity} alt="Лошади" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-            <div className="absolute top-5 left-5"><Pill light>🐴 Терапия</Pill></div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400 }}>Иппотерапия</h3>
-            </div>
-          </div>
-          <div className="group relative overflow-hidden cursor-pointer" style={{ gridColumn: "2 / 3", gridRow: "2 / 3", borderRadius: R }}>
-            <img src={mountainImage} alt="Горы" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-            <div className="absolute top-5 left-5"><Pill light>⛰️ Горы</Pill></div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400 }}>Экскурсия в Гомис Мта</h3>
-            </div>
-          </div>
-          <div className="group relative overflow-hidden cursor-pointer" style={{ gridColumn: "1 / 4", gridRow: "3 / 4", borderRadius: R }}>
-            <img src={springsImage} alt="Источники" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-            <div className="absolute top-5 left-5"><Pill light>♨️ Источники</Pill></div>
-            <div className="absolute bottom-0 left-0 p-7 max-w-lg">
-              <h3 className="text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400 }}>Серные источники Нокалакеви</h3>
-              <p className="text-white/65 text-sm leading-relaxed opacity-0 translate-y-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}>
-                Место Силы — горячая серная вода, купание в горной реке, детокс и перезапуск нервной системы
-              </p>
-            </div>
-          </div>
+          {[
+            { idx: 0, gridCol: "1 / 3", gridRow: "1 / 2" },
+            { idx: 1, gridCol: "3 / 4", gridRow: "1 / 3" },
+            { idx: 2, gridCol: "1 / 2", gridRow: "2 / 3" },
+            { idx: 3, gridCol: "2 / 3", gridRow: "2 / 3" },
+            { idx: 4, gridCol: "1 / 4", gridRow: "3 / 4" },
+          ].map(({ idx, gridCol, gridRow }) => {
+            const item = activities[idx];
+            return (
+              <div
+                key={idx}
+                className="group relative overflow-hidden"
+                style={{ gridColumn: gridCol, gridRow: gridRow, borderRadius: R }}
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Base gradient */}
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)" }} />
+                {/* Extra darkening on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.42) 60%, rgba(0,0,0,0.08) 100%)" }} />
+
+                <div className="absolute top-5 left-5"><Pill light>{item.pill}</Pill></div>
+
+                {/* Plus icon — appears on hover, rotates to × */}
+                <div
+                  className="absolute top-5 right-5 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300"
+                  style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(176,141,94,0.9)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)" }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
+                    <path d="M6 1V11M1 6H11" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                </div>
+
+                {/* Bottom: title always visible, desc slides in on hover */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-white" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400, marginBottom: 0 }}>{item.title}</h3>
+                  <div
+                    className="overflow-hidden transition-all duration-500 ease-in-out"
+                    style={{ maxHeight: 0 }}
+                    ref={el => {
+                      if (!el) return;
+                      const parent = el.closest(".group");
+                      if (!parent) return;
+                      const show = () => { el.style.maxHeight = "160px"; el.style.marginTop = "10px"; };
+                      const hide = () => { el.style.maxHeight = "0"; el.style.marginTop = "0"; };
+                      (parent as HTMLElement).addEventListener("mouseenter", show);
+                      (parent as HTMLElement).addEventListener("mouseleave", hide);
+                    }}
+                  >
+                    <div className="flex flex-col gap-1">
+                      {item.descLines.map((line, j) => (
+                        <p key={j} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: "0.82rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.5, letterSpacing: "0.015em" }}>{line}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Tour overview tags */}
@@ -686,12 +789,12 @@ export default function App() {
                   onClick={() => setOpenDay(isOpen ? null : i)}
                   style={{ background: "none", border: "none", cursor: "pointer" }}
                 >
-                  {/* Emoji + number bubble */}
+                  {/* Icon bubble */}
                   <div
                     className="flex-shrink-0 flex items-center justify-center"
                     style={{ width: 52, height: 52, borderRadius: "16px", background: isOpen ? accent : "#f0ebe2", transition: "background 0.3s" }}
                   >
-                    <span style={{ fontSize: "1.5rem", lineHeight: 1 }}>{day.emoji}</span>
+                    <img src={day.icon} alt={day.day} style={{ width: 32, height: 32, objectFit: "contain" }} />
                   </div>
 
                   {/* Day info */}
@@ -814,11 +917,16 @@ export default function App() {
           </div>
 
           {/* Included grid */}
-          <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="md:col-span-3 grid grid-cols-2 gap-2 sm:gap-3">
+            <div className="col-span-2 mb-1">
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.4rem, 3vw, 1.75rem)", fontWeight: 400, color: "#2c2419", letterSpacing: "0.01em" }}>
+                Что входит в стоимость
+              </p>
+            </div>
             {included.map((item, i) => (
-              <div key={i} className="flex items-center gap-3 px-5 py-4" style={{ borderRadius: "18px", background: "#fff" }}>
-                <span style={{ fontSize: "1.3rem", flexShrink: 0 }}>{item.icon}</span>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#4a3a2a", lineHeight: 1.4 }}>{item.text}</p>
+              <div key={i} className="flex items-center gap-2 px-3 py-3 sm:px-5 sm:py-4" style={{ borderRadius: "18px", background: "#fff" }}>
+                <span style={{ fontSize: "1.1rem", flexShrink: 0 }}>{item.icon}</span>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: "0.82rem", color: "#4a3a2a", lineHeight: 1.35 }}>{item.text}</p>
               </div>
             ))}
           </div>
