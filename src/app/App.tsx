@@ -997,50 +997,59 @@ export default function App() {
         </div>
 
         {/* Extra note */}
-        <div className="mt-3 p-6 text-center" style={{ borderRadius: R, background: "#fff" }}>
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic" }}>
-            * Возможен вариант 3-дневной практики голодания по желанию, под присмотром специалиста
+        <div className="mt-3 p-6 text-center" style={{ borderRadius: R, background: "#f7f1e7", border: "1px solid rgba(176,141,94,0.35)", boxShadow: "0 6px 18px rgba(44,36,25,0.06)" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.96rem", fontWeight: 400, color: "#5a4530", lineHeight: 1.65, letterSpacing: "0.01em" }}>
+            Возможен вариант 3-дневной практики голодания по желанию, под присмотром специалиста.
           </p>
         </div>
       </section>
 
       {/* ── CONTACT ── */}
-      <section className="py-4 px-4 max-w-6xl mx-auto pb-10">
+      <section className="py-6 px-4 max-w-6xl mx-auto pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {/* Title card */}
-          <div className="md:col-span-1 p-9 flex flex-col justify-center" style={{ borderRadius: R, background: "#2c2419" }}>
+          <div className="md:col-span-1 p-9 flex flex-col justify-center" style={{ borderRadius: R, background: "#252019", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 10px 24px rgba(24,20,15,0.2)" }}>
             <Pill light>Связаться</Pill>
-            <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 2.5vw, 2.2rem)", fontWeight: 300, color: "#fff" }}>
+            <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 2.5vw, 2.2rem)", fontWeight: 400, color: "#fff" }}>
               Запись и вопросы
             </h2>
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "rgba(255,255,255,0.5)", marginTop: 12, fontStyle: "italic" }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "rgba(255,255,255,0.74)", marginTop: 12, lineHeight: 1.55 }}>
               Мы рады ответить на все ваши вопросы
             </p>
           </div>
           {/* Phone card */}
-          <a href="tel:+79032311451" className="md:col-span-1 p-9 flex flex-col justify-between hover:opacity-90 transition-opacity" style={{ borderRadius: R, background: "#e8dfd3", textDecoration: "none" }}>
-            <span style={{ fontSize: "2.5rem" }}>📞</span>
+          <a href="tel:+79032311451" className="md:col-span-1 p-9 flex flex-col justify-between transition-shadow duration-300" style={{ borderRadius: R, background: "#fff", border: "1px solid #e2d8ca", boxShadow: "0 8px 22px rgba(44,36,25,0.06)", textDecoration: "none" }}>
+            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "#f1e8dc", color: "#6d5130", fontSize: "1.6rem" }}>📞</span>
             <div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 6 }}>Телефон</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#2c2419" }}>+7 903 231 14 51</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "#8c7a68", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Телефон</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#2c2419", lineHeight: 1.2 }}>+7 903 231 14 51</p>
             </div>
           </a>
           {/* Telegram card */}
-          <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="md:col-span-1 p-9 flex flex-col justify-between hover:opacity-90 transition-opacity" style={{ borderRadius: R, background: "#b08d5e", textDecoration: "none" }}>
-            <span style={{ fontSize: "2.5rem" }}>✈️</span>
+          <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="md:col-span-1 p-9 flex flex-col justify-between transition-shadow duration-300" style={{ borderRadius: R, background: "#fff", border: "1px solid #e2d8ca", boxShadow: "0 8px 22px rgba(44,36,25,0.06)", textDecoration: "none" }}>
+            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "#eef6fc", color: "#1d8ec6" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21.5 4.9c.3-.2.7 0 .7.4 0 .1 0 .2-.1.3l-3.1 14.7c-.1.6-.8.9-1.3.6l-4.3-3.2-2.2 2.1c-.4.4-1 .1-1-.4v-3.1l8.1-7.4c.2-.2 0-.4-.2-.3l-10 6.3-4.3-1.4c-.6-.2-.7-1-.1-1.3L21.5 4.9z" fill="currentColor"/>
+              </svg>
+            </span>
             <div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.6)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 6 }}>Telegram</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff" }}>@veravenera14</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "#7f8f9b", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Telegram</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#2c2419", lineHeight: 1.2 }}>@veravenera14</p>
             </div>
           </a>
         </div>
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-8 text-center">
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#a89880", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-          ВЫХОД ЕСТЬ · Ретрит в Грузии · 03–08 июня 2026
-        </p>
+      <footer className="px-4 pb-10 max-w-6xl mx-auto">
+        <div style={{ borderTop: "1px solid #ddd2c3" }} className="pt-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 400, color: "#8f7f6d", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            ВЫХОД ЕСТЬ · RETREAT GEORGIA
+          </p>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "#998a78", letterSpacing: "0.02em" }}>
+            03–08 июня 2026 · Запись: +7 903 231 14 51 · @veravenera14
+          </p>
+        </div>
       </footer>
     </div>
   );
