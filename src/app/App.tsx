@@ -24,6 +24,11 @@ import { useState, useEffect, type ReactNode } from "react";
 const mountainImage = mauntImage;
 const springsImage = sernieImage;
 const titleFont = "'Playfair Display', 'Cormorant Garamond', serif";
+const motionDurationFast = "150ms";
+const motionDurationBase = "200ms";
+const motionEaseStandard = "cubic-bezier(0.2, 0, 0, 1)";
+const cardTransition = `transform ${motionDurationBase} ${motionEaseStandard}, box-shadow ${motionDurationBase} ${motionEaseStandard}, border-color ${motionDurationBase} ${motionEaseStandard}`;
+const itemTransition = `background-color ${motionDurationFast} ${motionEaseStandard}, color ${motionDurationFast} ${motionEaseStandard}, border-color ${motionDurationFast} ${motionEaseStandard}`;
 
 const R = "28px"; // global bento border-radius
 
@@ -201,7 +206,7 @@ export default function App() {
 
   const navLinks = [
     { label: "О ретрите", id: "about" },
-    { label: "Ведущая", id: "host" },
+    { label: "Ведущии", id: "host" },
     { label: "Программа", id: "program" },
     { label: "Расписание", id: "schedule" },
     { label: "Стоимость", id: "pricing" },
@@ -212,7 +217,7 @@ export default function App() {
 
       {/* ── NAVBAR ── */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className="absolute top-0 left-0 right-0 z-50 transition-all duration-500 md:fixed"
         style={{
           background: scrolled ? "rgba(240,235,226,0.95)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
@@ -314,7 +319,7 @@ export default function App() {
             }}
           >
             ВЫХОД<br />
-            <span style={{ fontStyle: "italic", fontWeight: 700 }}>ЕСТЬ</span>
+            <span style={{ fontStyle: "italic", fontWeight: 300 }}>ЕСТЬ</span>
           </h1>
         </div>
 
@@ -430,7 +435,7 @@ export default function App() {
         {/* Statement card */}
         <div className="mt-20 text-center py-6 px-8">
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
-          <h3 style={{ fontFamily: titleFont, fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 600, color: "#2c2419", letterSpacing: "0.04em", lineHeight: 1 }}>«ВЫХОД ЕСТЬ»</h3>
+          <h3 style={{ fontFamily: titleFont, fontSize: "clamp(1.75rem, 9.5vw, 5rem)", fontWeight: 600, color: "#2c2419", letterSpacing: "0.03em", lineHeight: 1, whiteSpace: "nowrap" }}>«ВЫХОД ЕСТЬ»</h3>
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
             Ретрит, где ты вернёшься к себе настоящему<br className="hidden sm:block" /> и увидишь свой истинный Путь
@@ -1005,38 +1010,110 @@ export default function App() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section className="py-6 px-4 max-w-6xl mx-auto pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {/* Title card */}
-          <div className="md:col-span-1 p-9 flex flex-col justify-center" style={{ borderRadius: R, background: "#252019", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 10px 24px rgba(24,20,15,0.2)" }}>
-            <Pill light>Связаться</Pill>
-            <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 2.5vw, 2.2rem)", fontWeight: 400, color: "#fff" }}>
-              Запись и вопросы
-            </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "rgba(255,255,255,0.74)", marginTop: 12, lineHeight: 1.55 }}>
-              Мы рады ответить на все ваши вопросы
-            </p>
-          </div>
+      <section className="py-7 px-4 max-w-6xl mx-auto pb-10">
+        <div
+          className="mb-4 text-center md:mb-5 p-7 md:p-8"
+          style={{ borderRadius: R, background: "linear-gradient(165deg, #2a231b 0%, #1e1914 100%)", border: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 12px 30px rgba(24,20,15,0.24)" }}
+        >
+          <Pill light>Связаться</Pill>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.1rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#fff" }}>
+            Связаться с нами
+          </h2>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "rgba(255,255,255,0.72)", marginTop: 10, lineHeight: 1.55 }}>
+            Запись и вопросы по ретриту
+          </p>
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
           {/* Phone card */}
-          <a href="tel:+79032311451" className="md:col-span-1 p-9 flex flex-col justify-between transition-shadow duration-300" style={{ borderRadius: R, background: "#fff", border: "1px solid #e2d8ca", boxShadow: "0 8px 22px rgba(44,36,25,0.06)", textDecoration: "none" }}>
-            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "#f1e8dc", color: "#6d5130", fontSize: "1.6rem" }}>📞</span>
+          <div
+            className="p-9 flex flex-col justify-between hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            style={{ borderRadius: R, background: "linear-gradient(180deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.05) 100%)", border: "1px solid rgba(255,255,255,0.16)", boxShadow: "0 10px 26px rgba(10,9,8,0.3)", transition: cardTransition }}
+          >
+            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "rgba(255,255,255,0.14)", color: "#e5c79b", fontSize: "1.6rem" }}>📞</span>
             <div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "#8c7a68", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Телефон</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#2c2419", lineHeight: 1.2 }}>+7 903 231 14 51</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(255,255,255,0.74)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 10 }}>Телефон</p>
+              <div className="flex flex-col gap-2">
+                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "grid", gridTemplateColumns: "32px 1fr auto", alignItems: "center", gap: 10 }}>
+                  <span style={{ fontSize: "1.1rem", lineHeight: 1, textAlign: "center" }}>🇷🇺</span>
+                  <a
+                    href="tel:+79032311451"
+                    aria-label="Позвонить по номеру +7 903 231 14 51"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
+                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0.01em", textDecoration: "none", textAlign: "center", transition: itemTransition }}
+                  >
+                    +7 903 231 14 51
+                  </a>
+                  <a
+                    href="tel:+79032311451"
+                    aria-label="Кнопка позвонить по номеру +7 903 231 14 51"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
+                    style={{ borderRadius: "10px", padding: "8px 10px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                  >
+                    Позвонить
+                  </a>
+                </div>
+                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "grid", gridTemplateColumns: "32px 1fr auto", alignItems: "center", gap: 10 }}>
+                  <span style={{ fontSize: "1.1rem", lineHeight: 1, textAlign: "center" }}>🇬🇪</span>
+                  <a
+                    href="tel:+995593572613"
+                    aria-label="Позвонить по номеру +995 593 572 613"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
+                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0.01em", textDecoration: "none", textAlign: "center", transition: itemTransition }}
+                  >
+                    +995 593 572 613
+                  </a>
+                  <a
+                    href="tel:+995593572613"
+                    aria-label="Кнопка позвонить по номеру +995 593 572 613"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
+                    style={{ borderRadius: "10px", padding: "8px 10px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                  >
+                    Позвонить
+                  </a>
+                </div>
+              </div>
             </div>
-          </a>
+          </div>
+
           {/* Telegram card */}
-          <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="md:col-span-1 p-9 flex flex-col justify-between transition-shadow duration-300" style={{ borderRadius: R, background: "#fff", border: "1px solid #e2d8ca", boxShadow: "0 8px 22px rgba(44,36,25,0.06)", textDecoration: "none" }}>
-            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "#eef6fc", color: "#1d8ec6" }}>
+          <div
+            className="p-9 flex flex-col justify-between hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            style={{ borderRadius: R, background: "linear-gradient(180deg, rgba(34,111,164,0.25) 0%, rgba(20,58,86,0.35) 100%)", border: "1px solid rgba(149,206,244,0.28)", boxShadow: "0 10px 26px rgba(8,20,31,0.35)", transition: cardTransition }}
+          >
+            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "rgba(111,191,237,0.2)", color: "#7dd2ff" }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M21.5 4.9c.3-.2.7 0 .7.4 0 .1 0 .2-.1.3l-3.1 14.7c-.1.6-.8.9-1.3.6l-4.3-3.2-2.2 2.1c-.4.4-1 .1-1-.4v-3.1l8.1-7.4c.2-.2 0-.4-.2-.3l-10 6.3-4.3-1.4c-.6-.2-.7-1-.1-1.3L21.5 4.9z" fill="currentColor"/>
               </svg>
             </span>
             <div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "#7f8f9b", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Telegram</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#2c2419", lineHeight: 1.2 }}>@veravenera14</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(170,219,250,0.88)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Telegram</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, marginBottom: 6 }}>@veravenera14</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(255,255,255,0.76)", lineHeight: 1.45, marginBottom: 14 }}>
+                Быстрый ответ в личных сообщениях
+              </p>
+              <a
+                href="https://t.me/veravenera14"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#229ED9] focus-visible:ring-offset-2 motion-reduce:transition-none"
+                style={{
+                  borderRadius: "14px",
+                  background: "linear-gradient(180deg, #2ba8e8 0%, #1f8ec5 100%)",
+                  color: "#fff",
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  boxShadow: "0 8px 18px rgba(33,149,210,0.3)",
+                  transition: `transform ${motionDurationFast} ${motionEaseStandard}, filter ${motionDurationFast} ${motionEaseStandard}`,
+                }}
+              >
+                Написать
+              </a>
             </div>
-          </a>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -1047,7 +1124,7 @@ export default function App() {
             ВЫХОД ЕСТЬ · RETREAT GEORGIA
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "#998a78", letterSpacing: "0.02em" }}>
-            03–08 июня 2026 · Запись: +7 903 231 14 51 · @veravenera14
+            03–08 июня 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14
           </p>
         </div>
       </footer>
