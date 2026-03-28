@@ -321,10 +321,10 @@ export default function App() {
             className="mb-5"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(1.4rem, 4vw, 1.6rem)",
+              fontSize: "1.2rem",
               fontStyle: "italic",
               color: "rgba(255,255,255,0.6)",
-              lineHeight: 1.5,
+              lineHeight: 1.7,
             }}
           >
             Ретрит, где ты вернёшься к себе настоящему
@@ -430,7 +430,7 @@ export default function App() {
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
           <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 300, color: "#2c2419", letterSpacing: "0.06em", lineHeight: 1 }}>«ВЫХОД ЕСТЬ»</h3>
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.4rem, 4vw, 1.6rem)", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.5 }}>
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
             Ретрит, где ты вернёшься к себе настоящему<br className="hidden sm:block" /> и увидишь свой истинный Путь
           </p>
         </div>
