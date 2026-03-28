@@ -312,7 +312,7 @@ export default function App() {
             className="text-white"
             style={{
               fontFamily: titleFont,
-              fontSize: "clamp(5.5rem, 23vw, 9rem)",
+              fontSize: "clamp(4.6rem, 18vw, 9rem)",
               fontWeight: 600,
               letterSpacing: "-0.01em",
               lineHeight: 0.88,
