@@ -1032,16 +1032,18 @@ export default function App() {
             <div>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(255,255,255,0.74)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 10 }}>Телефон</p>
               <div className="flex flex-col gap-2">
-                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "grid", gridTemplateColumns: "32px 1fr auto", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: "1.1rem", lineHeight: 1, textAlign: "center" }}>🇷🇺</span>
-                  <a
-                    href="tel:+79032311451"
-                    aria-label="Позвонить по номеру +7 903 231 14 51"
-                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
-                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0.01em", textDecoration: "none", textAlign: "center", transition: itemTransition }}
-                  >
-                    +7 903 231 14 51
-                  </a>
+                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
+                    <span style={{ fontSize: "1.05rem", lineHeight: 1, textAlign: "center", flexShrink: 0 }}>🇷🇺</span>
+                    <a
+                      href="tel:+79032311451"
+                      aria-label="Позвонить по номеру +7 903 231 14 51"
+                      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
+                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.84rem, 3vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                    >
+                      +7 903 231 14 51
+                    </a>
+                  </div>
                   <a
                     href="tel:+79032311451"
                     aria-label="Кнопка позвонить по номеру +7 903 231 14 51"
@@ -1051,16 +1053,18 @@ export default function App() {
                     Позвонить
                   </a>
                 </div>
-                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "grid", gridTemplateColumns: "32px 1fr auto", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: "1.1rem", lineHeight: 1, textAlign: "center" }}>🇬🇪</span>
-                  <a
-                    href="tel:+995593572613"
-                    aria-label="Позвонить по номеру +995 593 572 613"
-                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
-                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0.01em", textDecoration: "none", textAlign: "center", transition: itemTransition }}
-                  >
-                    +995 593 572 613
-                  </a>
+                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
+                    <span style={{ fontSize: "1.05rem", lineHeight: 1, textAlign: "center", flexShrink: 0 }}>🇬🇪</span>
+                    <a
+                      href="tel:+995593572613"
+                      aria-label="Позвонить по номеру +995 593 572 613"
+                      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
+                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.84rem, 3vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                    >
+                      +995 593 572 613
+                    </a>
+                  </div>
                   <a
                     href="tel:+995593572613"
                     aria-label="Кнопка позвонить по номеру +995 593 572 613"
