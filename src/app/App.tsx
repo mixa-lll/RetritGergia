@@ -297,7 +297,7 @@ export default function App() {
                 boxShadow: "0 2px 18px rgba(212,180,131,0.7)",
               }}
             >
-              🇬🇪 Грузи��
+              🇬🇪 Грузия
             </span>
           </div>
           <h1
@@ -327,7 +327,7 @@ export default function App() {
               lineHeight: 1.5,
             }}
           >
-            Ретрит, где ты вернёш��ся к себе настоящему
+            Ретрит, где ты вернёшься к себе настоящему
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:justify-center">
             {/* Date pill */}
@@ -563,7 +563,7 @@ export default function App() {
               <div>
                 <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#2c2419", fontWeight: 400 }}>Работа с лошадьми</p>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.04em" }}>
-                  Иппот��рапия как инструмент исцеления и познания себя
+                  Иппотерапия как инструмент исцеления и познания себя
                 </p>
               </div>
             </div>
@@ -582,7 +582,7 @@ export default function App() {
             Шекветили, Грузия
           </h2>
           <p className="mt-3 mx-auto max-w-lg" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
-            Комфортабе��ьная вилла на берегу моря в уникальном месте — на магнитных песках
+            Комфортабельная вилла на берегу моря в уникальном месте — на магнитных песках
           </p>
         </div>
 
