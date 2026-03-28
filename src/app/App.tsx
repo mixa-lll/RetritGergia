@@ -17,10 +17,13 @@ import dayIcon3 from "@/assets/06d2654c3e8e53a5073cfb24f0ce61eccde69313.png";
 import dayIcon4 from "@/assets/0c982a327c5258697d028dc90d7a23dbd70e3484.png";
 import dayIcon5 from "@/assets/108a7853d1ce297b2dea1c0636f095de577a949a.png";
 import dayIcon6 from "@/assets/33876ec2f03db1d7d1ba85d83ad4a5792a26a5a9.png";
+import mauntImage from "@/assets/Maunt.jpg";
+import sernieImage from "@/assets/Sernie.png";
 import { useState, useEffect, type ReactNode } from "react";
 
-const mountainImage = "https://images.unsplash.com/photo-1761414299347-16e4911f1611?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnZW9yZ2lhJTIwY2F1Y2FzdXMlMjBtb3VudGFpbiUyMGxhbmRzY2FwZSUyMHN1bnNldHxlbnwxfHx8fDE3NzQ1MTQ0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const springsImage = "https://images.unsplash.com/photo-1759464519301-958f351961c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3QlMjBzcHJpbmdzJTIwc3VsZnVyJTIwdGhlcm1hbCUyMGJhdGglMjBuYXR1cmV8ZW58MXx8fHwxNzc0NTE0NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080";
+const mountainImage = mauntImage;
+const springsImage = sernieImage;
+const titleFont = "'Playfair Display', 'Cormorant Garamond', serif";
 
 const R = "28px"; // global bento border-radius
 
@@ -303,15 +306,15 @@ export default function App() {
           <h1
             className="text-white"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: titleFont,
               fontSize: "clamp(5.5rem, 23vw, 9rem)",
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
               lineHeight: 0.88,
             }}
           >
             ВЫХОД<br />
-            <span style={{ fontStyle: "italic", fontWeight: 400 }}>ЕСТЬ</span>
+            <span style={{ fontStyle: "italic", fontWeight: 700 }}>ЕСТЬ</span>
           </h1>
         </div>
 
@@ -382,7 +385,7 @@ export default function App() {
       <section id="about" className="pt-10 pb-16 px-4 max-w-6xl mx-auto">
         <div className="text-center mb-8 pt-4">
           <Pill>Знакомо?</Pill>
-          <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 3.2rem)", fontWeight: 300, color: "#2c2419", fontStyle: "italic" }}>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 3.2rem)", fontWeight: 300, color: "#2c2419", fontStyle: "italic" }}>
             Если узнаешь себя
           </h2>
         </div>
@@ -427,7 +430,7 @@ export default function App() {
         {/* Statement card */}
         <div className="mt-20 text-center py-6 px-8">
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
-          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 300, color: "#2c2419", letterSpacing: "0.06em", lineHeight: 1 }}>«ВЫХОД ЕСТЬ»</h3>
+          <h3 style={{ fontFamily: titleFont, fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 600, color: "#2c2419", letterSpacing: "0.04em", lineHeight: 1 }}>«ВЫХОД ЕСТЬ»</h3>
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
             Ретрит, где ты вернёшься к себе настоящему<br className="hidden sm:block" /> и увидишь свой истинный Путь
@@ -441,13 +444,13 @@ export default function App() {
           {/* Big text card */}
           <div className="md:col-span-3 p-7 md:p-10 flex flex-col justify-center" style={{ borderRadius: R, background: "#fff" }}>
             <Pill>Аудитория</Pill>
-            <h2 className="mt-4 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3vw, 2.6rem)", fontWeight: 300, color: "#2c2419" }}>
+            <h2 className="mt-3 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3vw, 2.6rem)", fontWeight: 300, color: "#2c2419" }}>
               Для кого ретрит
             </h2>
             <div className="w-10 h-px bg-[#b08d5e] mb-5" />
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#5a4a38", lineHeight: 1.7 }}>
               Для всех, кто хочет найти{" "}
-              <span style={{ fontStyle: "italic", color: "#8c6a3e", fontWeight: 700 }}>ВЫХОД</span>{" "}
+              <span style={{ fontFamily: titleFont, fontStyle: "normal", color: "#8c6a3e", fontWeight: 700, fontSize: "1.25em", lineHeight: 1 }}>ВЫХОД</span>{" "}
               <span style={{ fontStyle: "italic", color: "#8c6a3e", fontWeight: 500 }}>из сложных жизненных ситуаций</span>{" "}
               и познать себя.
             </p>
@@ -471,7 +474,7 @@ export default function App() {
         {/* Section header */}
         <div className="text-center mb-8">
           <Pill>Ведущие</Pill>
-          <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
             Ведущие ретрита
           </h2>
         </div>
@@ -485,12 +488,43 @@ export default function App() {
             <div className="relative overflow-hidden" style={{ borderRadius: R, minHeight: 420 }}>
               <img src={gongImage} alt="Vera Venera" className="absolute inset-0 w-full h-full object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute top-5 left-5"><Pill light>Ведущая</Pill></div>
+              <div className="absolute top-5 left-5">
+                <span
+                  className="inline-flex items-center px-4 py-1.5 text-xs tracking-widest uppercase"
+                  style={{
+                    borderRadius: "100px",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    background: "rgba(20,16,12,0.58)",
+                    color: "rgba(255,255,255,0.95)",
+                    border: "1px solid rgba(255,255,255,0.22)",
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
+                  Ведущая
+                </span>
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-7">
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "#fff", textTransform: "uppercase" }}>Vera Venera</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.6)", letterSpacing: "0.15em", textTransform: "uppercase", marginTop: 4 }}>
-                  Духовный практик · Коуч ICF · Мастер звукотерапии
-                </p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "#fff", textTransform: "uppercase", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>Vera Venera</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {["Духовный практик", "Коуч ICF", "Мастер звукотерапии"].map((role) => (
+                    <span
+                      key={role}
+                      className="inline-flex items-center px-3 py-1.5 text-[11px] uppercase"
+                      style={{
+                        borderRadius: "100px",
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 500,
+                        letterSpacing: "0.08em",
+                        background: "rgba(255,255,255,0.95)",
+                        color: "#2c2419",
+                        border: "1px solid rgba(44,36,25,0.1)",
+                      }}
+                    >
+                      {role}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
             {/* Credentials */}
@@ -530,12 +564,43 @@ export default function App() {
             <div className="relative overflow-hidden" style={{ borderRadius: R, minHeight: 420 }}>
               <img src={elenaImage} alt="Elena Anglen" className="absolute inset-0 w-full h-full object-cover object-center" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute top-5 left-5"><Pill light>Ведущая</Pill></div>
+              <div className="absolute top-5 left-5">
+                <span
+                  className="inline-flex items-center px-4 py-1.5 text-xs tracking-widest uppercase"
+                  style={{
+                    borderRadius: "100px",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    background: "rgba(20,16,12,0.58)",
+                    color: "rgba(255,255,255,0.95)",
+                    border: "1px solid rgba(255,255,255,0.22)",
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
+                  Ведущая
+                </span>
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-7">
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "#fff", textTransform: "uppercase" }}>Elena Anglen</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.6)", letterSpacing: "0.15em", textTransform: "uppercase", marginTop: 4 }}>
-                  Энергопрактик · Мастер регресса · Иппотерапевт
-                </p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "#fff", textTransform: "uppercase", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>Elena Anglen</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {["Энергопрактик", "Мастер регресса", "Иппотерапевт"].map((role) => (
+                    <span
+                      key={role}
+                      className="inline-flex items-center px-3 py-1.5 text-[11px] uppercase"
+                      style={{
+                        borderRadius: "100px",
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 500,
+                        letterSpacing: "0.08em",
+                        background: "rgba(255,255,255,0.95)",
+                        color: "#2c2419",
+                        border: "1px solid rgba(44,36,25,0.1)",
+                      }}
+                    >
+                      {role}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
             {/* Credentials */}
@@ -577,7 +642,7 @@ export default function App() {
         {/* Header — outside any card */}
         <div className="text-center mb-8">
           <Pill>Место проведения</Pill>
-          <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
             Шекветили, Грузия
           </h2>
           <p className="mt-3 mx-auto max-w-lg" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
@@ -628,7 +693,7 @@ export default function App() {
       <section id="program" className="py-4 px-4 max-w-6xl mx-auto">
         <div className="mb-8 pt-4 text-center">
           <Pill>Практики</Pill>
-          <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
             В программе ретрита
           </h2>
         </div>
@@ -762,7 +827,7 @@ export default function App() {
       <section id="schedule" className="py-4 px-4 max-w-6xl mx-auto pb-10">
         <div className="mb-8 pt-4 text-center">
           <Pill>Расписание</Pill>
-          <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
             Программа по дням
           </h2>
         </div>
@@ -891,7 +956,7 @@ export default function App() {
       <section id="pricing" className="py-4 px-4 max-w-6xl mx-auto pb-10">
         <div className="mb-8 pt-4 text-center">
           <Pill>Стоимость</Pill>
-          <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
+          <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
             Участие в ретрите
           </h2>
         </div>
@@ -945,7 +1010,7 @@ export default function App() {
           {/* Title card */}
           <div className="md:col-span-1 p-9 flex flex-col justify-center" style={{ borderRadius: R, background: "#2c2419" }}>
             <Pill light>Связаться</Pill>
-            <h2 className="mt-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 2.5vw, 2.2rem)", fontWeight: 300, color: "#fff" }}>
+            <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 2.5vw, 2.2rem)", fontWeight: 300, color: "#fff" }}>
               Запись и вопросы
             </h2>
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "rgba(255,255,255,0.5)", marginTop: 12, fontStyle: "italic" }}>
