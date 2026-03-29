@@ -260,7 +260,7 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section id="hero" className="relative overflow-hidden" style={{ height: "100svh", minHeight: 640, borderRadius: "0 0 36px 36px" }}>
-        <img src={heroImage} alt="Ретрит в Грузии" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <img src={heroImage} alt="Ретрит в Грузии" className="absolute inset-0 w-full h-full object-cover object-[36%_center] md:object-center" />
         {/* Strong gradient — heavier at bottom */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.75) 100%)", borderRadius: "0 0 36px 36px" }} />
 
@@ -567,7 +567,12 @@ export default function App() {
           <div className="flex flex-col gap-3">
             {/* Photo */}
             <div className="relative overflow-hidden" style={{ borderRadius: R, minHeight: 420 }}>
-              <img src={elenaImage} alt="Elena Anglen" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <img
+                src={elenaImage}
+                alt="Elena Anglen"
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "center 24%", transform: "scale(1.07)", transformOrigin: "center 24%" }}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute top-5 left-5">
                 <span
