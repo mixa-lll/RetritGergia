@@ -4,7 +4,7 @@ import villaImage from "@/assets/124a832b55183ad9faf8e32098b7af38868592d4.png";
 import yogaActivity from "@/assets/64cc803dcd5688821c4e72f955d8e2694e19b15d.png";
 import horsesActivity from "@/assets/0f9d9598a4376081fcf0e878bb1af73ddd138e30.png";
 import gongActivity from "@/assets/0e24abf0431b10605c6d8bc899b64f25f35eff8b.png";
-import elenaImage from "@/assets/501534f93809b7df3807861f35cc2db68d892d70.png";
+import elenaImage from "@/assets/ElenA.png";
 import painIcon1 from "@/assets/4d71dff975952751ecffd7fb65b8903791f1a1ae.png";
 import painIcon2 from "@/assets/feadb1c3b665f3d92da5eb25943ed8e0744da256.png";
 import painIcon3 from "@/assets/e9980a983b5daecd3967d6616a0dd951e693f2df.png";
@@ -570,8 +570,7 @@ export default function App() {
               <img
                 src={elenaImage}
                 alt="Elena Anglen"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: "center 24%", transform: "scale(1.07)", transformOrigin: "center 24%" }}
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute top-5 left-5">
