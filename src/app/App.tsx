@@ -19,7 +19,7 @@ import dayIcon5 from "@/assets/108a7853d1ce297b2dea1c0636f095de577a949a.png";
 import dayIcon6 from "@/assets/33876ec2f03db1d7d1ba85d83ad4a5792a26a5a9.png";
 import mauntImage from "@/assets/Maunt.jpg";
 import sernieImage from "@/assets/Sernie.png";
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 
 const mountainImage = mauntImage;
 const springsImage = sernieImage;
@@ -325,11 +325,13 @@ export default function App() {
   const [openActivity, setOpenActivity] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [compactPhoneButtons, setCompactPhoneButtons] = useState(false);
   const [language, setLanguage] = useState<Language>(() => {
     if (typeof window === "undefined") return "ru";
     const storedLang = window.localStorage.getItem("lang");
     return storedLang === "en" ? "en" : "ru";
   });
+  const phoneRowRefs = useRef<Array<HTMLDivElement | null>>([]);
   const t = (text: string) => (language === "en" ? (EN_TRANSLATIONS[text] ?? text) : text);
 
   const activities = [
@@ -398,6 +400,24 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = language;
     window.localStorage.setItem("lang", language);
+  }, [language]);
+
+  useEffect(() => {
+    const measurePhoneRows = () => {
+      if (window.innerWidth >= 768) {
+        setCompactPhoneButtons(false);
+        return;
+      }
+      const shouldCompact = phoneRowRefs.current.some((row) => row && row.scrollWidth > row.clientWidth + 1);
+      setCompactPhoneButtons(shouldCompact);
+    };
+
+    const raf = requestAnimationFrame(measurePhoneRows);
+    window.addEventListener("resize", measurePhoneRows);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", measurePhoneRows);
+    };
   }, [language]);
 
   const navLinks = [
@@ -1242,7 +1262,7 @@ export default function App() {
             <div className="relative z-10">
               <Pill light>{t("Цена участия")}</Pill>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1, marginTop: 16 }}>
-                88 000 ₽ <span style={{ fontSize: "0.5em", color: "#d4b483", verticalAlign: "baseline" }}>· 999$</span>
+                88 000 ₽ — 999$
               </p>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>{t("10% скидка до 20 апреля")}</p>
             </div>
@@ -1303,14 +1323,14 @@ export default function App() {
             <div>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(255,255,255,0.74)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 10 }}>{t("Телефон")}</p>
               <div className="flex flex-col gap-2">
-                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
+                <div ref={(el) => { phoneRowRefs.current[0] = el; }} style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0, flex: 1 }}>
                     <span style={{ fontSize: "1.05rem", lineHeight: 1, textAlign: "center", flexShrink: 0 }}>🇷🇺</span>
                     <a
                       href="tel:+79032311451"
                       aria-label={t("Позвонить по номеру +7 903 231 14 51")}
                       className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
-                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.84rem, 3vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.8rem, 3.2vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
                     >
                       +7 903 231 14 51
                     </a>
@@ -1318,20 +1338,21 @@ export default function App() {
                   <a
                     href="tel:+79032311451"
                     aria-label={t("Кнопка позвонить по номеру +7 903 231 14 51")}
-                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
-                    style={{ borderRadius: "10px", padding: "8px 10px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2 flex items-center justify-center"
+                    style={{ borderRadius: "10px", padding: compactPhoneButtons ? "8px" : "8px 10px", minWidth: compactPhoneButtons ? "36px" : "auto", minHeight: "36px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition, flexShrink: 0 }}
                   >
-                    {t("Позвонить")}
+                    <span aria-hidden="true" style={{ fontSize: "0.9rem", lineHeight: 1 }}>📞</span>
+                    {!compactPhoneButtons && <span className="ml-2">{t("Позвонить")}</span>}
                   </a>
                 </div>
-                <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
+                <div ref={(el) => { phoneRowRefs.current[1] = el; }} style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0, flex: 1 }}>
                     <span style={{ fontSize: "1.05rem", lineHeight: 1, textAlign: "center", flexShrink: 0 }}>🇬🇪</span>
                     <a
                       href="tel:+995593572613"
                       aria-label={t("Позвонить по номеру +995 593 572 613")}
                       className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
-                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.84rem, 3vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.8rem, 3.2vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
                     >
                       +995 593 572 613
                     </a>
@@ -1339,10 +1360,11 @@ export default function App() {
                   <a
                     href="tel:+995593572613"
                     aria-label={t("Кнопка позвонить по номеру +995 593 572 613")}
-                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
-                    style={{ borderRadius: "10px", padding: "8px 10px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2 flex items-center justify-center"
+                    style={{ borderRadius: "10px", padding: compactPhoneButtons ? "8px" : "8px 10px", minWidth: compactPhoneButtons ? "36px" : "auto", minHeight: "36px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition, flexShrink: 0 }}
                   >
-                    {t("Позвонить")}
+                    <span aria-hidden="true" style={{ fontSize: "0.9rem", lineHeight: 1 }}>📞</span>
+                    {!compactPhoneButtons && <span className="ml-2">{t("Позвонить")}</span>}
                   </a>
                 </div>
               </div>
