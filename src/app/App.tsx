@@ -976,7 +976,9 @@ export default function App() {
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: "cover", backgroundPosition: "top", borderRadius: R }} />
             <div className="relative z-10">
               <Pill light>Цена участия</Pill>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1, marginTop: 16 }}>88 000 ₽</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1, marginTop: 16 }}>
+                88 000 ₽ <span style={{ fontSize: "0.5em", color: "#d4b483", verticalAlign: "baseline" }}>· 999$</span>
+              </p>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>10% скидка до 20 апреля</p>
             </div>
             <div className="relative z-10 mt-8">
