@@ -135,11 +135,202 @@ const Pill = ({ children, light = false }: { children: ReactNode; light?: boolea
   </span>
 );
 
+type Language = "ru" | "en";
+
+const EN_TRANSLATIONS: Record<string, string> = {
+  "ВЫХОД ЕСТЬ": "WAY OUT",
+  "О ретрите": "About",
+  "Ведущии": "Hosts",
+  "Программа": "Program",
+  "Расписание": "Schedule",
+  "Стоимость": "Pricing",
+  "Забронировать": "Book now",
+  "Забронировать место": "Book your spot",
+  "Ретрит в Грузии": "Retreat in Georgia",
+  "Авторский ретрит": "Signature retreat",
+  "Грузия": "Georgia",
+  "Ретрит, где ты вернёшься к себе настоящему": "A retreat where you return to your true self",
+  "июня": "June",
+  "июня 2026": "June 2026",
+  "Знакомо?": "Feel familiar?",
+  "Если узнаешь себя": "If you recognize yourself",
+  "Бесконечный поток мыслей": "Endless flow of thoughts",
+  " — и ты не можешь остановиться": " and you cannot stop",
+  "Ты мама —": "You are a mom,",
+  " и у тебя нет времени даже побыть одной": " and you have no time even to be alone",
+  "Работа выжала тебя,": "Work has drained you,",
+  " но остановиться страшно": " but stopping feels scary",
+  "Постоянная тревога": "Constant anxiety",
+  " о будущем не даёт покоя": " about the future gives you no peace",
+  "Информационный шум": "Information noise",
+  " и тревожные новости истощают": " and distressing news exhaust you",
+  "Часто болеешь,": "You often get sick,",
+  " но не видишь истинную причину": " but don't see the real cause",
+  "«ВЫХОД ЕСТЬ»": "“WAY OUT”",
+  " и увидишь свой истинный Путь": " and see your true Path",
+  "Аудитория": "Audience",
+  "Для кого ретрит": "Who this retreat is for",
+  "Для всех, кто хочет найти": "For everyone who wants to find",
+  "из сложных жизненных ситуаций": "from difficult life situations",
+  "и познать себя.": "and get to know themselves.",
+  "ВЫХОД": "WAY",
+  "ЕСТЬ": "OUT",
+  "дней трансформации": "days of transformation",
+  "часов глубокой трансформации": "hours of deep transformation",
+  "Ведущие": "Hosts",
+  "Ведущие ретрита": "Retreat hosts",
+  "Ведущая": "Host",
+  "Духовный практик": "Spiritual practitioner",
+  "Коуч ICF": "ICF coach",
+  "Мастер звукотерапии": "Sound therapy master",
+  "Более 15 лет практикую духовные практики": "Over 15 years of spiritual practice",
+  "Сертифицированный коуч «Эриксоновский Унивеситет Коучинга» (ICF)": "Certified coach, Erickson Coaching International (ICF)",
+  "Мастер звукотерапии — гонг-медитация": "Sound therapy master — gong meditation",
+  "Сертифицированный мастер по работе с метафорическими картами (Macards)": "Certified specialist in metaphorical cards (Macards)",
+  "Мастер Сакральной кинезиологии «Университет Кинезиологии»": "Sacral kinesiology master (University of Kinesiology)",
+  "Рекорд России": "Russia record",
+  "Гонг-медитация на 1000+ человек по телесно-эмоциональной практике": "Gong meditation for 1000+ people in body-emotional practice",
+  "Энергопрактик": "Energy practitioner",
+  "Мастер регресса": "Regression master",
+  "Иппотерапевт": "Hippotherapist",
+  "Дипломированный энергопрактик": "Certified energy practitioner",
+  "Целитель — диагностика здоровья, рекомендации лечения с использованием натуральной медицины": "Healer — health diagnostics and treatment recommendations using natural medicine",
+  "Работа с лошадьми": "Work with horses",
+  "Иппотерапия как инструмент исцеления и познания себя": "Hippotherapy as a tool for healing and self-discovery",
+  "Место проведения": "Location",
+  "Шекветили, Грузия": "Shekvetili, Georgia",
+  "Комфортабельная вилла на берегу моря в уникальном месте — на магнитных песках": "A comfortable villa by the sea in a unique place with magnetic sands",
+  "Вилла в Шекветили": "Villa in Shekvetili",
+  "🏖️ Черноморское побережье": "🏖️ Black Sea coast",
+  "Вилла": "Villa",
+  "на берегу моря": "by the sea",
+  "Чёрное море": "Black Sea",
+  "Прямой выход на пляж": "Direct beach access",
+  "Магнитные пески": "Magnetic sands",
+  "Минеральный состав снимает стресс": "Mineral composition helps relieve stress",
+  "Комфорт-вилла": "Comfort villa",
+  "Двухместное размещение": "Double accommodation",
+  "Шекветили": "Shekvetili",
+  "Магическое место Грузии": "A magical place in Georgia",
+  "03 — 08 июня 2026": "03 — 08 June 2026",
+  "Практики": "Practices",
+  "В программе ретрита": "Retreat program includes",
+  "🌊 Практика": "🌊 Practice",
+  "Йога у моря": "Yoga by the sea",
+  "Практика соединения тела, дыхания и внимания": "Practice of connecting body, breath, and attention",
+  "Возвращает баланс, ясность и внутреннюю опору": "Restores balance, clarity, and inner support",
+  "🔔 Звук": "🔔 Sound",
+  "Гонг-медитация": "Gong meditation",
+  "Глубокое погружение в звук и вибрации": "Deep immersion into sound and vibrations",
+  "Перезагружает нервную систему и успокаивает ум": "Resets the nervous system and calms the mind",
+  "🐴 Терапия": "🐴 Therapy",
+  "Иппотерапия + Фотосессия": "Hippotherapy + Photo session",
+  "Контакт с лошадьми помогает мягко восстановить": "Contact with horses gently helps restore",
+  "эмоциональное состояние и внутреннее равновесие": "emotional state and inner balance",
+  "⛰️ Горы": "⛰️ Mountains",
+  "Горы — Гомис Мта": "Mountains — Gomis Mta",
+  "Высота 2100 м над уровнем моря": "Altitude 2100 m above sea level",
+  "Ощущение, будто ты над облаками": "Feeling like you are above the clouds",
+  "Тишина, воздух и сильная энергия природы": "Silence, fresh air, and powerful nature energy",
+  "♨️ Источники": "♨️ Springs",
+  "Серные источники Нокалакеви": "Nokalakevi sulfur springs",
+  "· расслабление тела": "· body relaxation",
+  "· восстановление суставов и кожи": "· joints and skin recovery",
+  "· детокс": "· detox",
+  "· перезапуск нервной системы": "· nervous system reset",
+  "· полное отключение от суеты": "· complete disconnection from hustle",
+  "📅 3–8 июня · 5 ночей / 6 дней": "📅 June 3–8 · 5 nights / 6 days",
+  "🌊 Море": "🌊 Sea",
+  "🧘 Йога": "🧘 Yoga",
+  "⚡ Энергопрактики": "⚡ Energy practices",
+  "🗺 Экскурсии": "🗺 Excursions",
+  "💆 Восстановление": "💆 Recovery",
+  "🔔 Гонг": "🔔 Gong",
+  "🐴 Иппотерапия": "🐴 Hippotherapy",
+  "Программа по дням": "Day-by-day program",
+  "День 1": "Day 1",
+  "День 2": "Day 2",
+  "День 3": "Day 3",
+  "День 4": "Day 4",
+  "День 5": "Day 5",
+  "День 6": "Day 6",
+  "3 июня": "June 3",
+  "4 июня": "June 4",
+  "5 июня": "June 5",
+  "6 июня": "June 6",
+  "7 июня": "June 7",
+  "8 июня": "June 8",
+  "событий": "events",
+  "Заезд и мягкая настройка": "Arrival and gentle tuning",
+  "Море и звуки": "Sea and sounds",
+  "Горы и традиции": "Mountains and traditions",
+  "Восстановление": "Recovery",
+  "День Силы и источников": "Day of power and springs",
+  "Завершение": "Completion",
+  "Заезд участников, размещение на вилле": "Participants arrival and villa check-in",
+  "Круг знакомств и открытие ретрита": "Introduction circle and retreat opening",
+  "Ужин": "Dinner",
+  "Медитация намерения на ретрит": "Intention meditation for the retreat",
+  "Утренняя йога у моря": "Morning yoga by the sea",
+  "Завтрак": "Breakfast",
+  "Групповая регрессия": "Group regression",
+  "Обед": "Lunch",
+  "Свободное время / море / биоэнергетический массаж / фотосессия и иппотерапия с лошадьми": "Free time / sea / bioenergetic massage / photo session and hippotherapy with horses",
+  "Гонг-медитация на море": "Gong meditation by the sea",
+  "Утренняя йога": "Morning yoga",
+  "Мастер-класс по изготовлению грузинского хлеба": "Georgian bread masterclass",
+  "Отдых / свободное время": "Rest / free time",
+  "Экскурсия в Гомис Мта — горная деревня на высоте 2100 м: панорамы, медитация, пикник": "Excursion to Gomis Mta — mountain village at 2100 m: panoramas, meditation, picnic",
+  "Вечерний круг": "Evening circle",
+  "Йога": "Yoga",
+  "Групповая регрессия (сессия 2)": "Group regression (session 2)",
+  "Баня, травяной чай, купание в море": "Bathhouse, herbal tea, and sea swimming",
+  "Йога на море": "Yoga by the sea",
+  "Поездка на горячие сульфатные источники, купание в горной реке, обед на природе": "Trip to hot sulfate springs, mountain river swimming, outdoor lunch",
+  "Закрывающая церемония ретрита — благодарности, медитация, ритуал на море": "Closing retreat ceremony — gratitude, meditation, ritual by the sea",
+  "Круг завершения": "Closing circle",
+  "Выезд участников": "Participants departure",
+  "Участие в ретрите": "Retreat participation",
+  "Цена участия": "Participation price",
+  "10% скидка до 20 апреля": "10% discount until April 20",
+  "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
+  "Что входит в стоимость": "What is included",
+  "Трансфер по программе": "Program transfers",
+  "Проживание на вилле": "Accommodation in the villa",
+  "Питание (завтраки)": "Meals (breakfasts)",
+  "Гонг-медитации": "Gong meditations",
+  "Групповые сессии регресса": "Group regression sessions",
+  "Йога на берегу моря": "Yoga by the sea shore",
+  "Фотосессия на лошадях": "Horse photo session",
+  "Биоэнергетический массаж": "Bioenergetic massage",
+  "2 экскурсии": "2 excursions",
+  "Возможен вариант 3-дневной практики голодания по желанию, под присмотром специалиста.": "Optional 3-day fasting practice under specialist supervision.",
+  "Связаться": "Contact",
+  "Связаться с нами": "Contact us",
+  "Запись и вопросы по ретриту": "Booking and retreat questions",
+  "Телефон": "Phone",
+  "Позвонить": "Call",
+  "Позвонить по номеру +7 903 231 14 51": "Call +7 903 231 14 51",
+  "Кнопка позвонить по номеру +7 903 231 14 51": "Call button for +7 903 231 14 51",
+  "Позвонить по номеру +995 593 572 613": "Call +995 593 572 613",
+  "Кнопка позвонить по номеру +995 593 572 613": "Call button for +995 593 572 613",
+  "Написать": "Write",
+  "Быстрый ответ в личных сообщениях": "Fast reply in direct messages",
+  "ВЫХОД ЕСТЬ · RETREAT GEORGIA": "WAY OUT · RETREAT GEORGIA",
+  "03–08 июня 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14": "June 3–8, 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14",
+};
+
 export default function App() {
   const [openDay, setOpenDay] = useState<number | null>(null);
   const [openActivity, setOpenActivity] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window === "undefined") return "ru";
+    const storedLang = window.localStorage.getItem("lang");
+    return storedLang === "en" ? "en" : "ru";
+  });
+  const t = (text: string) => (language === "en" ? (EN_TRANSLATIONS[text] ?? text) : text);
 
   const activities = [
     {
@@ -204,13 +395,34 @@ export default function App() {
     setMenuOpen(false);
   };
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+    window.localStorage.setItem("lang", language);
+  }, [language]);
+
   const navLinks = [
-    { label: "О ретрите", id: "about" },
-    { label: "Ведущии", id: "host" },
-    { label: "Программа", id: "program" },
-    { label: "Расписание", id: "schedule" },
-    { label: "Стоимость", id: "pricing" },
+    { label: t("О ретрите"), id: "about" },
+    { label: t("Ведущии"), id: "host" },
+    { label: t("Программа"), id: "program" },
+    { label: t("Расписание"), id: "schedule" },
+    { label: t("Стоимость"), id: "pricing" },
   ];
+
+  const bookingLabel = t("Забронировать");
+  const activitiesLocalized = activities.map((item) => ({
+    ...item,
+    pill: t(item.pill),
+    title: t(item.title),
+    descLines: item.descLines.map((line) => t(line)),
+  }));
+  const daysLocalized = days.map((day) => ({
+    ...day,
+    day: t(day.day),
+    date: t(day.date),
+    title: t(day.title),
+    items: day.items.map((item) => ({ ...item, text: t(item.text) })),
+  }));
+  const includedLocalized = included.map((item) => ({ ...item, text: t(item.text) }));
 
   return (
     <div style={{ fontFamily: "'Inter', sans-serif", color: "#2c2419", background: "#f0ebe2" }} className="min-h-screen">
@@ -226,7 +438,7 @@ export default function App() {
       >
         <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
           <button onClick={() => scrollTo("hero")} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 400, letterSpacing: "0.12em", color: scrolled ? "#2c2419" : "#fff", background: "none", border: "none", cursor: "pointer" }}>
-            ВЫХОД ЕСТЬ
+            {t("ВЫХОД ЕСТЬ")}
           </button>
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map(l => (
@@ -234,8 +446,38 @@ export default function App() {
                 {l.label}
               </button>
             ))}
+            <div
+              className="inline-flex items-center p-1"
+              style={{
+                borderRadius: "999px",
+                border: scrolled ? "1px solid rgba(44,36,25,0.25)" : "1px solid rgba(255,255,255,0.35)",
+                background: scrolled ? "rgba(44,36,25,0.04)" : "rgba(255,255,255,0.12)",
+              }}
+            >
+              {(["ru", "en"] as const).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className="px-3 py-1 transition-colors"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: "0.68rem",
+                    fontWeight: 400,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    borderRadius: "999px",
+                    border: "none",
+                    cursor: "pointer",
+                    background: language === lang ? (scrolled ? "#2c2419" : "rgba(255,255,255,0.25)") : "transparent",
+                    color: language === lang ? "#fff" : (scrolled ? "#2c2419" : "rgba(255,255,255,0.85)"),
+                  }}
+                >
+                  {lang}
+                </button>
+              ))}
+            </div>
             <button onClick={() => scrollTo("pricing")} className="px-5 py-2 transition-all duration-300" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", background: scrolled ? "#2c2419" : "rgba(255,255,255,0.15)", border: scrolled ? "1px solid #2c2419" : "1px solid rgba(255,255,255,0.4)", color: "#fff", borderRadius: "100px", cursor: "pointer" }}>
-              Забронировать
+              {bookingLabel}
             </button>
           </div>
           <button className="md:hidden flex flex-col gap-1.5 p-1" onClick={() => setMenuOpen(!menuOpen)} style={{ background: "none", border: "none", cursor: "pointer" }}>
@@ -244,15 +486,38 @@ export default function App() {
             ))}
           </button>
         </div>
-        <div className="md:hidden overflow-hidden transition-all duration-400" style={{ maxHeight: menuOpen ? "360px" : "0", background: "rgba(240,235,226,0.98)", backdropFilter: "blur(16px)" }}>
+        <div className="md:hidden overflow-hidden transition-all duration-400" style={{ maxHeight: menuOpen ? "420px" : "0", background: "rgba(240,235,226,0.98)", backdropFilter: "blur(16px)" }}>
           <div className="px-5 py-4 flex flex-col gap-0 border-t border-[#e0d5c5]">
+            <div className="inline-flex items-center p-1 mb-4 self-start" style={{ borderRadius: "999px", border: "1px solid rgba(44,36,25,0.2)", background: "rgba(44,36,25,0.04)" }}>
+              {(["ru", "en"] as const).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className="px-3 py-1 transition-colors"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: "0.68rem",
+                    fontWeight: 400,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    borderRadius: "999px",
+                    border: "none",
+                    cursor: "pointer",
+                    background: language === lang ? "#2c2419" : "transparent",
+                    color: language === lang ? "#fff" : "#2c2419",
+                  }}
+                >
+                  {lang}
+                </button>
+              ))}
+            </div>
             {navLinks.map(l => (
               <button key={l.id} onClick={() => scrollTo(l.id)} className="text-left py-3 hover:text-[#b08d5e] transition-colors" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.15em", textTransform: "uppercase", color: "#2c2419", background: "none", border: "none", borderBottom: "1px solid #e8ddd0", cursor: "pointer" }}>
                 {l.label}
               </button>
             ))}
             <button onClick={() => scrollTo("pricing")} className="mt-4 py-3 text-center" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", background: "#2c2419", color: "#fff", border: "none", borderRadius: "14px", cursor: "pointer" }}>
-              Забронировать
+              {bookingLabel}
             </button>
           </div>
         </div>
@@ -260,7 +525,7 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section id="hero" className="relative overflow-hidden" style={{ height: "100svh", minHeight: 640, borderRadius: "0 0 36px 36px" }}>
-        <img src={heroImage} alt="Ретрит в Грузии" className="absolute inset-0 w-full h-full object-cover object-[45%_center] md:object-center" />
+        <img src={heroImage} alt={t("Ретрит в Грузии")} className="absolute inset-0 w-full h-full object-cover object-[45%_center] md:object-center" />
         {/* Strong gradient — heavier at bottom */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.75) 100%)", borderRadius: "0 0 36px 36px" }} />
 
@@ -278,7 +543,7 @@ export default function App() {
                 color: "rgba(255,255,255,0.8)",
               }}
             >
-              Авторский ретрит
+              {t("Авторский ретрит")}
             </span>
             <span
               className="inline-flex items-center px-4 py-1.5 text-xs tracking-widest uppercase"
@@ -305,7 +570,7 @@ export default function App() {
                 boxShadow: "0 2px 18px rgba(212,180,131,0.7)",
               }}
             >
-              🇬🇪 Грузия
+              🇬🇪 {t("Грузия")}
             </span>
           </div>
           <h1
@@ -318,8 +583,8 @@ export default function App() {
               lineHeight: 0.88,
             }}
           >
-            ВЫХОД<br />
-            ЕСТЬ
+            {t("ВЫХОД")}<br />
+            {t("ЕСТЬ")}
           </h1>
         </div>
 
@@ -335,7 +600,7 @@ export default function App() {
               lineHeight: 1.7,
             }}
           >
-            Ретрит, где ты вернёшься к себе настоящему
+            {t("Ретрит, где ты вернёшься к себе настоящему")}
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:justify-center">
             {/* Date pill */}
@@ -351,12 +616,12 @@ export default function App() {
             >
               <div className="flex items-center gap-1.5 px-4" style={{ height: "100%" }}>
                 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>3</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>июня</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("июня")}</span>
               </div>
               <div style={{ width: 20, height: "1px", background: "rgba(212,180,131,0.65)", flexShrink: 0 }} />
               <div className="flex items-center gap-1.5 px-4" style={{ height: "100%" }}>
                 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>8</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>июня 2026</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("июня 2026")}</span>
               </div>
             </div>
             {/* CTA button */}
@@ -380,7 +645,7 @@ export default function App() {
                 flexShrink: 0,
               }}
             >
-              Забронировать место
+              {t("Забронировать место")}
             </button>
           </div>
         </div>
@@ -389,21 +654,21 @@ export default function App() {
       {/* ── PAIN POINTS ── */}
       <section id="about" className="pt-10 pb-16 px-4 max-w-6xl mx-auto">
         <div className="text-center mb-8 pt-4">
-          <Pill>Знакомо?</Pill>
+          <Pill>{t("Знакомо?")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 3.2rem)", fontWeight: 300, color: "#2c2419", fontStyle: "italic" }}>
-            Если узнаешь себя
+            {t("Если узнаешь себя")}
           </h2>
         </div>
 
         {/* Bento pain grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
-            { num: "01", bold: "Бесконечный поток мыслей", rest: " — и ты не можешь остановиться", bg: "#2c2419", light: true, icon: painIcon1, whiteIcon: true },
-            { num: "02", bold: "Ты мама —", rest: " и у тебя нет времени даже побыть одной", bg: "#fff", light: false, icon: painIcon2 },
-            { num: "03", bold: "Работа выжала тебя,", rest: " но остановиться страшно", bg: "#e8dfd3", light: false, icon: painIcon3 },
-            { num: "04", bold: "Постоянная тревога", rest: " о будущем не даёт покоя", bg: "#fff", light: false, icon: painIcon4 },
-            { num: "05", bold: "Информационный шум", rest: " и тревожные новости истощают", bg: "#e8dfd3", light: false, icon: painIcon5 },
-            { num: "06", bold: "Часто болеешь,", rest: " но не видишь истинную причину", bg: "#2c2419", light: true, icon: painIcon6, whiteIcon: true },
+            { num: "01", bold: t("Бесконечный поток мыслей"), rest: t(" — и ты не можешь остановиться"), bg: "#2c2419", light: true, icon: painIcon1, whiteIcon: true },
+            { num: "02", bold: t("Ты мама —"), rest: t(" и у тебя нет времени даже побыть одной"), bg: "#fff", light: false, icon: painIcon2 },
+            { num: "03", bold: t("Работа выжала тебя,"), rest: t(" но остановиться страшно"), bg: "#e8dfd3", light: false, icon: painIcon3 },
+            { num: "04", bold: t("Постоянная тревога"), rest: t(" о будущем не даёт покоя"), bg: "#fff", light: false, icon: painIcon4 },
+            { num: "05", bold: t("Информационный шум"), rest: t(" и тревожные новости истощают"), bg: "#e8dfd3", light: false, icon: painIcon5 },
+            { num: "06", bold: t("Часто болеешь,"), rest: t(" но не видишь истинную причину"), bg: "#2c2419", light: true, icon: painIcon6, whiteIcon: true },
           ].map((item, i) => (
             <div 
               key={i} 
@@ -435,10 +700,10 @@ export default function App() {
         {/* Statement card */}
         <div className="mt-20 text-center py-6 px-8">
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
-          <h3 style={{ fontFamily: titleFont, fontSize: "clamp(1.75rem, 9.5vw, 5rem)", fontWeight: 600, color: "#2c2419", letterSpacing: "0.03em", lineHeight: 1, whiteSpace: "nowrap" }}>«ВЫХОД ЕСТЬ»</h3>
+          <h3 style={{ fontFamily: titleFont, fontSize: "clamp(1.75rem, 9.5vw, 5rem)", fontWeight: 600, color: "#2c2419", letterSpacing: "0.03em", lineHeight: 1, whiteSpace: "nowrap" }}>{t("«ВЫХОД ЕСТЬ»")}</h3>
           <div className="w-8 h-px bg-[#b08d5e]/40 mx-auto my-6" />
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
-            Ретрит, где ты вернёшься к себе настоящему<br className="hidden sm:block" /> и увидишь свой истинный Путь
+            {t("Ретрит, где ты вернёшься к себе настоящему")}<br className="hidden sm:block" />{t(" и увидишь свой истинный Путь")}
           </p>
         </div>
       </section>
@@ -448,27 +713,27 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           {/* Big text card */}
           <div className="md:col-span-3 p-7 md:p-10 flex flex-col justify-center" style={{ borderRadius: R, background: "#fff" }}>
-            <Pill>Аудитория</Pill>
+            <Pill>{t("Аудитория")}</Pill>
             <h2 className="mt-3 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3vw, 2.6rem)", fontWeight: 300, color: "#2c2419" }}>
-              Для кого ретрит
+              {t("Для кого ретрит")}
             </h2>
             <div className="w-10 h-px bg-[#b08d5e] mb-5" />
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#5a4a38", lineHeight: 1.7 }}>
-              Для всех, кто хочет найти{" "}
-              <span style={{ fontFamily: titleFont, fontStyle: "normal", color: "#8c6a3e", fontWeight: 700, fontSize: "1.25em", lineHeight: 1 }}>ВЫХОД</span>{" "}
-              <span style={{ fontStyle: "italic", color: "#8c6a3e", fontWeight: 500 }}>из сложных жизненных ситуаций</span>{" "}
-              и познать себя.
+              {t("Для всех, кто хочет найти")}{" "}
+              <span style={{ fontFamily: titleFont, fontStyle: "normal", color: "#8c6a3e", fontWeight: 700, fontSize: "1.25em", lineHeight: 1 }}>{t("ВЫХОД")}</span>{" "}
+              <span style={{ fontStyle: "italic", color: "#8c6a3e", fontWeight: 500 }}>{t("из сложных жизненных ситуаций")}</span>{" "}
+              {t("и познать себя.")}
             </p>
           </div>
           {/* Stats cards — side by side on mobile too */}
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-1 gap-3">
             <div className="p-6 md:p-8 flex flex-col justify-center" style={{ borderRadius: R, background: "#b08d5e" }}>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 6vw, 3rem)", fontWeight: 300, color: "#fff", lineHeight: 1 }}>6</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.75)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>дней трансформации</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.75)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>{t("дней трансформации")}</p>
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center" style={{ borderRadius: R, background: "#e8dfd3" }}>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 6vw, 3rem)", fontWeight: 300, color: "#2c2419", lineHeight: 1 }}>150+</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>часов глубокой трансформации</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>{t("часов глубокой трансформации")}</p>
             </div>
           </div>
         </div>
@@ -478,9 +743,9 @@ export default function App() {
       <section id="host" className="pt-14 pb-4 px-4 max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-8">
-          <Pill>Ведущие</Pill>
+          <Pill>{t("Ведущие")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            Ведущие ретрита
+            {t("Ведущие ретрита")}
           </h2>
         </div>
 
@@ -506,7 +771,7 @@ export default function App() {
                     backdropFilter: "blur(8px)",
                   }}
                 >
-                  Ведущая
+                  {t("Ведущая")}
                 </span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-7">
@@ -526,7 +791,7 @@ export default function App() {
                         border: "1px solid rgba(44,36,25,0.1)",
                       }}
                     >
-                      {role}
+                      {t(role)}
                     </span>
                   ))}
                 </div>
@@ -546,7 +811,7 @@ export default function App() {
                     <span className="flex-shrink-0 mt-1.5 w-4 h-4 rounded-full bg-[#b08d5e]/15 flex items-center justify-center">
                       <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5L7 1" stroke="#b08d5e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </span>
-                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#4a3a2a", lineHeight: 1.5 }}>{item}</p>
+                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#4a3a2a", lineHeight: 1.5 }}>{t(item)}</p>
                   </div>
                 ))}
               </div>
@@ -555,9 +820,9 @@ export default function App() {
             <div className="p-6 flex items-center gap-4" style={{ borderRadius: R, background: "#2c2419" }}>
               <span style={{ fontSize: "2rem" }}>🏆</span>
               <div>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#fff", fontWeight: 400 }}>Рекорд России</p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#fff", fontWeight: 400 }}>{t("Рекорд России")}</p>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.04em" }}>
-                  Гонг-медитация на 1000+ человек по телесно-эмоциональной практике
+                  {t("Гонг-медитация на 1000+ человек по телесно-эмоциональной практике")}
                 </p>
               </div>
             </div>
@@ -586,7 +851,7 @@ export default function App() {
                     backdropFilter: "blur(8px)",
                   }}
                 >
-                  Ведущая
+                  {t("Ведущая")}
                 </span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-7">
@@ -606,7 +871,7 @@ export default function App() {
                         border: "1px solid rgba(44,36,25,0.1)",
                       }}
                     >
-                      {role}
+                      {t(role)}
                     </span>
                   ))}
                 </div>
@@ -625,7 +890,7 @@ export default function App() {
                     <span className="flex-shrink-0 mt-1.5 w-4 h-4 rounded-full bg-[#b08d5e]/15 flex items-center justify-center">
                       <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5L7 1" stroke="#b08d5e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </span>
-                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#4a3a2a", lineHeight: 1.5 }}>{item}</p>
+                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#4a3a2a", lineHeight: 1.5 }}>{t(item)}</p>
                   </div>
                 ))}
               </div>
@@ -634,9 +899,9 @@ export default function App() {
             <div className="p-6 flex items-center gap-4" style={{ borderRadius: R, background: "#e8dfd3" }}>
               <span style={{ fontSize: "2rem" }}>🐴</span>
               <div>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#2c2419", fontWeight: 400 }}>Работа с лошадьми</p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#2c2419", fontWeight: 400 }}>{t("Работа с лошадьми")}</p>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.04em" }}>
-                  Иппотерапия как инструмент исцеления и познания себя
+                  {t("Иппотерапия как инструмент исцеления и познания себя")}
                 </p>
               </div>
             </div>
@@ -650,32 +915,32 @@ export default function App() {
 
         {/* Header — outside any card */}
         <div className="text-center mb-8">
-          <Pill>Место проведения</Pill>
+          <Pill>{t("Место проведения")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            Шекветили, Грузия
+            {t("Шекветили, Грузия")}
           </h2>
           <p className="mt-3 mx-auto max-w-lg" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
-            Комфортабельная вилла на берегу моря в уникальном месте — на магнитных песках
+            {t("Комфортабельная вилла на берегу моря в уникальном месте — на магнитных песках")}
           </p>
         </div>
 
         {/* Full-width image */}
         <div className="relative overflow-hidden w-full" style={{ borderRadius: R, minHeight: "clamp(340px, 50vw, 520px)" }}>
-          <img src={villaImage} alt="Вилла в Шекветили" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={villaImage} alt={t("Вилла в Шекветили")} className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
           {/* Location badge — top right */}
           <div className="absolute top-5 right-5">
-            <Pill light>🏖️ Черноморское побережье</Pill>
+            <Pill light>{t("🏖️ Черноморское побережье")}</Pill>
           </div>
           {/* Bottom overlay text */}
           <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.15 }}>
-                Вилла <span style={{ fontStyle: "italic", color: "#d4b483" }}>на берегу моря</span>
+                {t("Вилла")} <span style={{ fontStyle: "italic", color: "#d4b483" }}>{t("на берегу моря")}</span>
               </p>
             </div>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-              03 — 08 июня 2026
+              {t("03 — 08 июня 2026")}
             </p>
           </div>
         </div>
@@ -683,10 +948,10 @@ export default function App() {
         {/* Feature tiles — pulled OUT, standalone row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
           {[
-            { icon: "🌊", title: "Чёрное море", sub: "Прямой выход на пляж" },
-            { icon: "✨", title: "Магнитные пески", sub: "Минеральный состав снимает стресс" },
-            { icon: "🏡", title: "Комфорт-вилла", sub: "Двухместное размещение" },
-            { icon: "🌿", title: "Шекветили", sub: "Магическое место Грузии" },
+            { icon: "🌊", title: t("Чёрное море"), sub: t("Прямой выход на пляж") },
+            { icon: "✨", title: t("Магнитные пески"), sub: t("Минеральный состав снимает стресс") },
+            { icon: "🏡", title: t("Комфорт-вилла"), sub: t("Двухместное размещение") },
+            { icon: "🌿", title: t("Шекветили"), sub: t("Магическое место Грузии") },
           ].map((item, i) => (
             <div key={i} className="p-6 flex flex-col gap-2" style={{ borderRadius: R, background: i === 1 ? "#2c2419" : "#fff" }}>
               <span style={{ fontSize: "1.8rem" }}>{item.icon}</span>
@@ -701,14 +966,14 @@ export default function App() {
       {/* ── PROGRAM ACTIVITIES ── */}
       <section id="program" className="py-4 px-4 max-w-6xl mx-auto">
         <div className="mb-8 pt-4 text-center">
-          <Pill>Практики</Pill>
+          <Pill>{t("Практики")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            В программе ретрита
+            {t("В программе ретрита")}
           </h2>
         </div>
         {/* Mobile: simple stack */}
         <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {activities.map((item, i) => {
+          {activitiesLocalized.map((item, i) => {
             const isOpen = openActivity === i;
             return (
               <div key={i} className="relative overflow-hidden" style={{ borderRadius: R, height: 240 }}>
@@ -766,7 +1031,7 @@ export default function App() {
             { idx: 3, gridCol: "2 / 3", gridRow: "2 / 3" },
             { idx: 4, gridCol: "1 / 4", gridRow: "3 / 4" },
           ].map(({ idx, gridCol, gridRow }) => {
-            const item = activities[idx];
+            const item = activitiesLocalized[idx];
             return (
               <div
                 key={idx}
@@ -825,9 +1090,9 @@ export default function App() {
 
         {/* Tour overview tags */}
         <div className="mt-3 p-7 flex flex-wrap gap-2 items-center justify-center" style={{ borderRadius: R, background: "#fff" }}>
-          <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#8c7a68", marginRight: 8 }}>📅 3–8 июня · 5 ночей / 6 дней</span>
+          <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#8c7a68", marginRight: 8 }}>{t("📅 3–8 июня · 5 ночей / 6 дней")}</span>
           {["🌊 Море", "🧘 Йога", "⚡ Энергопрактики", "🗺 Экскурсии", "💆 Восстановление", "🔔 Гонг", "🐴 Иппотерапия"].map((tag, i) => (
-            <span key={i} className="px-4 py-2" style={{ borderRadius: "100px", background: "#f0ebe2", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#5a4a38" }}>{tag}</span>
+            <span key={i} className="px-4 py-2" style={{ borderRadius: "100px", background: "#f0ebe2", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#5a4a38" }}>{t(tag)}</span>
           ))}
         </div>
       </section>
@@ -835,14 +1100,14 @@ export default function App() {
       {/* ── SCHEDULE ── */}
       <section id="schedule" className="py-4 px-4 max-w-6xl mx-auto pb-10">
         <div className="mb-8 pt-4 text-center">
-          <Pill>Расписание</Pill>
+          <Pill>{t("Расписание")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            Программа по дням
+            {t("Программа по дням")}
           </h2>
         </div>
 
         <div className="flex flex-col gap-2">
-          {days.map((day, i) => {
+          {daysLocalized.map((day, i) => {
             const isOpen = openDay === i;
             const accent = ["#b08d5e","#8c7a68","#6a8c7a","#7a6a8c","#b08d5e","#8c7a68"][i];
             return (
@@ -884,7 +1149,7 @@ export default function App() {
                     className="flex-shrink-0 hidden sm:flex items-center gap-1.5 px-3 py-1 mr-2"
                     style={{ borderRadius: "100px", background: "#f0ebe2", fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.08em" }}
                   >
-                    {day.items.length} событий
+                    {day.items.length} {t("событий")}
                   </span>
 
                   {/* Toggle icon */}
@@ -964,9 +1229,9 @@ export default function App() {
       {/* ── PRICING ── */}
       <section id="pricing" className="py-4 px-4 max-w-6xl mx-auto pb-10">
         <div className="mb-8 pt-4 text-center">
-          <Pill>Стоимость</Pill>
+          <Pill>{t("Стоимость")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            Участие в ретрите
+            {t("Участие в ретрите")}
           </h2>
         </div>
 
@@ -975,18 +1240,18 @@ export default function App() {
           <div className="md:col-span-2 relative overflow-hidden flex flex-col justify-between p-9" style={{ borderRadius: R, background: "#2c2419", minHeight: 320 }}>
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: "cover", backgroundPosition: "top", borderRadius: R }} />
             <div className="relative z-10">
-              <Pill light>Цена участия</Pill>
+              <Pill light>{t("Цена участия")}</Pill>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1, marginTop: 16 }}>
                 88 000 ₽ <span style={{ fontSize: "0.5em", color: "#d4b483", verticalAlign: "baseline" }}>· 999$</span>
               </p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>10% скидка до 20 апреля</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>{t("10% скидка до 20 апреля")}</p>
             </div>
             <div className="relative z-10 mt-8">
               <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="block text-center py-3.5 transition-colors hover:bg-[#9a7a4e]" style={{ background: "#b08d5e", borderRadius: "14px", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>
-                Забронировать место
+                {t("Забронировать место")}
               </a>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.35)", textAlign: "center", marginTop: 10, letterSpacing: "0.05em" }}>
-                + авиабилеты ~30 000 ₽
+                {t("+ авиабилеты ~30 000 ₽")}
               </p>
             </div>
           </div>
@@ -995,10 +1260,10 @@ export default function App() {
           <div className="md:col-span-3 grid grid-cols-2 gap-2 sm:gap-3">
             <div className="col-span-2 mb-1">
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.4rem, 3vw, 1.75rem)", fontWeight: 400, color: "#2c2419", letterSpacing: "0.01em" }}>
-                Что входит в стоимость
+                {t("Что входит в стоимость")}
               </p>
             </div>
-            {included.map((item, i) => (
+            {includedLocalized.map((item, i) => (
               <div key={i} className="flex items-center gap-2 px-3 py-3 sm:px-5 sm:py-4" style={{ borderRadius: "18px", background: "#fff" }}>
                 <span style={{ fontSize: "1.1rem", flexShrink: 0 }}>{item.icon}</span>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: "0.82rem", color: "#4a3a2a", lineHeight: 1.35 }}>{item.text}</p>
@@ -1010,7 +1275,7 @@ export default function App() {
         {/* Extra note */}
         <div className="mt-3 p-6 text-center" style={{ borderRadius: R, background: "#f7f1e7", border: "1px solid rgba(176,141,94,0.35)", boxShadow: "0 6px 18px rgba(44,36,25,0.06)" }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.96rem", fontWeight: 400, color: "#5a4530", lineHeight: 1.65, letterSpacing: "0.01em" }}>
-            Возможен вариант 3-дневной практики голодания по желанию, под присмотром специалиста.
+            {t("Возможен вариант 3-дневной практики голодания по желанию, под присмотром специалиста.")}
           </p>
         </div>
       </section>
@@ -1021,12 +1286,12 @@ export default function App() {
           className="mb-4 text-center md:mb-5 p-7 md:p-8"
           style={{ borderRadius: R, background: "linear-gradient(165deg, #2a231b 0%, #1e1914 100%)", border: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 12px 30px rgba(24,20,15,0.24)" }}
         >
-          <Pill light>Связаться</Pill>
+          <Pill light>{t("Связаться")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.1rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#fff" }}>
-            Связаться с нами
+            {t("Связаться с нами")}
           </h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "rgba(255,255,255,0.72)", marginTop: 10, lineHeight: 1.55 }}>
-            Запись и вопросы по ретриту
+            {t("Запись и вопросы по ретриту")}
           </p>
           <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
           {/* Phone card */}
@@ -1036,14 +1301,14 @@ export default function App() {
           >
             <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "rgba(255,255,255,0.14)", color: "#e5c79b", fontSize: "1.6rem" }}>📞</span>
             <div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(255,255,255,0.74)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 10 }}>Телефон</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(255,255,255,0.74)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 10 }}>{t("Телефон")}</p>
               <div className="flex flex-col gap-2">
                 <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
                     <span style={{ fontSize: "1.05rem", lineHeight: 1, textAlign: "center", flexShrink: 0 }}>🇷🇺</span>
                     <a
                       href="tel:+79032311451"
-                      aria-label="Позвонить по номеру +7 903 231 14 51"
+                      aria-label={t("Позвонить по номеру +7 903 231 14 51")}
                       className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
                       style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.84rem, 3vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
                     >
@@ -1052,11 +1317,11 @@ export default function App() {
                   </div>
                   <a
                     href="tel:+79032311451"
-                    aria-label="Кнопка позвонить по номеру +7 903 231 14 51"
+                    aria-label={t("Кнопка позвонить по номеру +7 903 231 14 51")}
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
                     style={{ borderRadius: "10px", padding: "8px 10px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
                   >
-                    Позвонить
+                    {t("Позвонить")}
                   </a>
                 </div>
                 <div style={{ borderRadius: "14px", padding: "8px 8px 8px 10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
@@ -1064,7 +1329,7 @@ export default function App() {
                     <span style={{ fontSize: "1.05rem", lineHeight: 1, textAlign: "center", flexShrink: 0 }}>🇬🇪</span>
                     <a
                       href="tel:+995593572613"
-                      aria-label="Позвонить по номеру +995 593 572 613"
+                      aria-label={t("Позвонить по номеру +995 593 572 613")}
                       className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
                       style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.84rem, 3vw, 1rem)", fontWeight: 500, color: "#fff", lineHeight: 1.2, letterSpacing: "0", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
                     >
@@ -1073,11 +1338,11 @@ export default function App() {
                   </div>
                   <a
                     href="tel:+995593572613"
-                    aria-label="Кнопка позвонить по номеру +995 593 572 613"
+                    aria-label={t("Кнопка позвонить по номеру +995 593 572 613")}
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b08d5e] focus-visible:ring-offset-2"
                     style={{ borderRadius: "10px", padding: "8px 10px", background: "#d4b483", border: "1px solid #d4b483", fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 600, color: "#2c2419", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", whiteSpace: "nowrap", transition: itemTransition }}
                   >
-                    Позвонить
+                    {t("Позвонить")}
                   </a>
                 </div>
               </div>
@@ -1098,7 +1363,7 @@ export default function App() {
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(170,219,250,0.88)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Telegram</p>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, marginBottom: 6 }}>@veravenera14</p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(255,255,255,0.76)", lineHeight: 1.45, marginBottom: 14 }}>
-                Быстрый ответ в личных сообщениях
+                {t("Быстрый ответ в личных сообщениях")}
               </p>
               <a
                 href="https://t.me/veravenera14"
@@ -1119,7 +1384,7 @@ export default function App() {
                   transition: `transform ${motionDurationFast} ${motionEaseStandard}, filter ${motionDurationFast} ${motionEaseStandard}`,
                 }}
               >
-                Написать
+                {t("Написать")}
               </a>
             </div>
           </div>
@@ -1131,10 +1396,10 @@ export default function App() {
       <footer className="px-4 pb-10 max-w-6xl mx-auto">
         <div style={{ borderTop: "1px solid #ddd2c3" }} className="pt-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 400, color: "#8f7f6d", letterSpacing: "0.14em", textTransform: "uppercase" }}>
-            ВЫХОД ЕСТЬ · RETREAT GEORGIA
+            {t("ВЫХОД ЕСТЬ · RETREAT GEORGIA")}
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "#998a78", letterSpacing: "0.02em" }}>
-            03–08 июня 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14
+            {t("03–08 июня 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14")}
           </p>
         </div>
       </footer>
