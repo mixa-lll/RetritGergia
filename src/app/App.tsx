@@ -176,6 +176,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "ВЫХОД": "WAY",
   "ЕСТЬ": "OUT",
   "дней трансформации": "days of transformation",
+  "часов глубокой практики": "hours of deep practice",
   "часов глубокой трансформации": "hours of deep transformation",
   "Ведущие": "Hosts",
   "Ведущие ретрита": "Retreat hosts",
@@ -753,7 +754,7 @@ export default function App() {
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center" style={{ borderRadius: R, background: "#e8dfd3" }}>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 6vw, 3rem)", fontWeight: 300, color: "#2c2419", lineHeight: 1 }}>150+</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>{t("часов глубокой трансформации")}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#8c7a68", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>{t("часов глубокой практики")}</p>
             </div>
           </div>
         </div>
