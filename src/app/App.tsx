@@ -299,7 +299,8 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Выезд участников": "Participants departure",
   "Участие в ретрите": "Retreat participation",
   "Цена участия": "Participation price",
-  "88 000 ₽ (при оплате до 30 апреля)": "88,000 ₽ (when paid before April 30)",
+  "88 000 ₽": "88,000 ₽",
+  "при оплате до 30 апреля": "when paid before April 30",
   "99 000 ₽ после": "99,000 ₽ after",
   "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
   "Что входит в стоимость": "What is included",
@@ -1277,9 +1278,14 @@ export default function App() {
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: "cover", backgroundPosition: "top", borderRadius: R }} />
             <div className="relative z-10">
               <Pill light>{t("Цена участия")}</Pill>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem, 4.4vw, 3.2rem)", fontWeight: 400, color: "#fff", lineHeight: 1.15, marginTop: 16 }}>
-                <span className="block">{t("88 000 ₽ (при оплате до 30 апреля)")}</span>
-                <span className="block mt-2">{t("99 000 ₽ после")}</span>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 400, color: "#fff", lineHeight: 1, marginTop: 16 }}>
+                {t("88 000 ₽")}
+              </p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>
+                {t("при оплате до 30 апреля")}
+              </p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", fontWeight: 400, color: "rgba(255,255,255,0.9)", marginTop: 8 }}>
+                {t("99 000 ₽ после")}
               </p>
             </div>
             <div className="relative z-10 mt-8">
