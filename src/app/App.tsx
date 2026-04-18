@@ -1,6 +1,9 @@
 import heroImage from "@/assets/1a36169f5ae242c6ab59db3d9a9f50ebaf3b9f63.png";
 import gongImage from "@/assets/38e9ea5e112a6693cbbf0652892f6af500f567e1.png";
-import villaImage from "@/assets/124a832b55183ad9faf8e32098b7af38868592d4.png";
+import hotelPoolImage from "@/assets/hotel_pool.png";
+import hotelRoomImage from "@/assets/Hotel_room.png";
+import hotelBathroomImage from "@/assets/Hotel_room_bathroom.png";
+import hotelJacuzziImage from "@/assets/Hotel_Jacuzzi.png";
 import yogaActivity from "@/assets/64cc803dcd5688821c4e72f955d8e2694e19b15d.png";
 import horsesActivity from "@/assets/0f9d9598a4376081fcf0e878bb1af73ddd138e30.png";
 import gongActivity from "@/assets/0e24abf0431b10605c6d8bc899b64f25f35eff8b.png";
@@ -37,7 +40,7 @@ const days = [
     day: "День 1", date: "3 июня", title: "Заезд и мягкая настройка",
     emoji: "🌅", icon: dayIcon1,
     items: [
-      { time: "15:00–17:00", text: "Заезд участников, размещение на вилле" },
+      { time: "15:00–17:00", text: "Заезд участников, размещение в отеле 5★" },
       { time: "17:30–18:30", text: "Круг знакомств и открытие ретрита" },
       { time: "19:00–20:00", text: "Ужин" },
       { time: "20:30–22:00", text: "Медитация намерения на ретрит" },
@@ -106,7 +109,7 @@ const days = [
 
 const included = [
   { icon: "🚐", text: "Трансфер по программе" },
-  { icon: "🏠", text: "Проживание на вилле" },
+  { icon: "🏨", text: "Проживание в отеле 5★" },
   { icon: "🍳", text: "Питание (завтраки)" },
   { icon: "🔔", text: "Гонг-медитации" },
   { icon: "🧠", text: "Групповые сессии регресса" },
@@ -198,13 +201,16 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Целитель — диагностика здоровья, рекомендации лечения с использованием натуральной медицины": "Healer — health diagnostics and treatment recommendations using natural medicine",
   "Работа с лошадьми": "Work with horses",
   "Иппотерапия как инструмент исцеления и познания себя": "Hippotherapy as a tool for healing and self-discovery",
-  "Место проведения": "Location",
-  "Шекветили, Грузия": "Shekvetili, Georgia",
-  "Комфортабельная вилла на берегу моря в уникальном месте — на магнитных песках": "A comfortable villa by the sea in a unique place with magnetic sands",
-  "Вилла в Шекветили": "Villa in Shekvetili",
-  "🏖️ Черноморское побережье": "🏖️ Black Sea coast",
-  "Вилла": "Villa",
-  "на берегу моря": "by the sea",
+  "Место проживания": "Accommodation",
+  "Магнитные пески · 5★ отель": "Magnetic sands · 5★ hotel",
+  "Проживание в отеле 5★ на магнитных песках у моря": "Stay at a 5★ hotel on magnetic sands by the sea",
+  "Общий вид отеля: бассейн": "Hotel overview: pool",
+  "Номер отеля": "Hotel room",
+  "Ванная в номере": "Bathroom in the room",
+  "Джакузи в зоне отдыха": "Jacuzzi in the lounge area",
+  "На магнитных песках": "On magnetic sands",
+  "Отель 5★": "5★ hotel",
+  "Черное море рядом": "Black Sea nearby",
   "Чёрное море": "Black Sea",
   "Прямой выход на пляж": "Direct beach access",
   "Магнитные пески": "Magnetic sands",
@@ -268,7 +274,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Восстановление": "Recovery",
   "День Силы и источников": "Day of power and springs",
   "Завершение": "Completion",
-  "Заезд участников, размещение на вилле": "Participants arrival and villa check-in",
+  "Заезд участников, размещение в отеле 5★": "Participants arrival and 5★ hotel check-in",
   "Круг знакомств и открытие ретрита": "Introduction circle and retreat opening",
   "Ужин": "Dinner",
   "Медитация намерения на ретрит": "Intention meditation for the retreat",
@@ -297,7 +303,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
   "Что входит в стоимость": "What is included",
   "Трансфер по программе": "Program transfers",
-  "Проживание на вилле": "Accommodation in the villa",
+  "Проживание в отеле 5★": "Accommodation in a 5★ hotel",
   "Питание (завтраки)": "Meals (breakfasts)",
   "Гонг-медитации": "Gong meditations",
   "Групповые сессии регресса": "Group regression sessions",
@@ -933,51 +939,63 @@ export default function App() {
 
       {/* ── ACCOMMODATION ── */}
       <section className="pt-14 pb-4 px-4 max-w-6xl mx-auto">
-
-        {/* Header — outside any card */}
         <div className="text-center mb-8">
-          <Pill>{t("Место проведения")}</Pill>
+          <Pill>{t("Место проживания")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            {t("Шекветили, Грузия")}
+            {t("Магнитные пески · 5★ отель")}
           </h2>
-          <p className="mt-3 mx-auto max-w-lg" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
-            {t("Комфортабельная вилла на берегу моря в уникальном месте — на магнитных песках")}
+          <p className="mt-3 mx-auto max-w-2xl" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.7 }}>
+            {t("Проживание в отеле 5★ на магнитных песках у моря")}
           </p>
         </div>
 
-        {/* Full-width image */}
-        <div className="relative overflow-hidden w-full" style={{ borderRadius: R, minHeight: "clamp(340px, 50vw, 520px)" }}>
-          <img src={villaImage} alt={t("Вилла в Шекветили")} className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-          {/* Location badge — top right */}
-          <div className="absolute top-5 right-5">
-            <Pill light>{t("🏖️ Черноморское побережье")}</Pill>
-          </div>
-          {/* Bottom overlay text */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.15 }}>
-                {t("Вилла")} <span style={{ fontStyle: "italic", color: "#d4b483" }}>{t("на берегу моря")}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <figure className="relative overflow-hidden md:row-span-2" style={{ borderRadius: R, minHeight: "clamp(300px, 44vw, 520px)" }}>
+            <img src={hotelPoolImage} alt={t("Общий вид отеля: бассейн")} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+            <figcaption className="absolute bottom-0 left-0 right-0 p-6">
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.2rem, 2.6vw, 1.9rem)", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
+                {t("Общий вид отеля: бассейн")}
               </p>
-            </div>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-              {t("03 — 08 июня 2026")}
-            </p>
+            </figcaption>
+          </figure>
+
+          <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(190px, 24vw, 255px)" }}>
+            <img src={hotelRoomImage} alt={t("Номер отеля")} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
+            <figcaption className="absolute bottom-0 left-0 right-0 p-4">
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
+                {t("Номер отеля")}
+              </p>
+            </figcaption>
+          </figure>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3">
+            <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(170px, 22vw, 240px)" }}>
+              <img src={hotelBathroomImage} alt={t("Ванная в номере")} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-4">
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
+                  {t("Ванная в номере")}
+                </p>
+              </figcaption>
+            </figure>
+            <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(170px, 22vw, 240px)" }}>
+              <img src={hotelJacuzziImage} alt={t("Джакузи в зоне отдыха")} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-4">
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
+                  {t("Джакузи в зоне отдыха")}
+                </p>
+              </figcaption>
+            </figure>
           </div>
         </div>
 
-        {/* Feature tiles — pulled OUT, standalone row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
-          {[
-            { icon: "🌊", title: t("Чёрное море"), sub: t("Прямой выход на пляж") },
-            { icon: "✨", title: t("Магнитные пески"), sub: t("Минеральный состав снимает стресс") },
-            { icon: "🏡", title: t("Комфорт-вилла"), sub: t("Двухместное размещение") },
-            { icon: "🌿", title: t("Шекветили"), sub: t("Магическое место Грузии") },
-          ].map((item, i) => (
-            <div key={i} className="p-6 flex flex-col gap-2" style={{ borderRadius: R, background: i === 1 ? "#2c2419" : "#fff" }}>
-              <span style={{ fontSize: "1.8rem" }}>{item.icon}</span>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: i === 1 ? "#fff" : "#2c2419", lineHeight: 1.2 }}>{item.title}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: i === 1 ? "rgba(255,255,255,0.45)" : "#8c7a68", letterSpacing: "0.04em", lineHeight: 1.5 }}>{item.sub}</p>
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[t("На магнитных песках"), t("Отель 5★"), t("Черное море рядом")].map((item) => (
+            <div key={item} className="px-5 py-4 text-center" style={{ borderRadius: "18px", background: "#fff" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 400, color: "#5a4a38", letterSpacing: "0.12em", textTransform: "uppercase" }}>{item}</p>
             </div>
           ))}
         </div>
