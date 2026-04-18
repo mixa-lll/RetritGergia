@@ -204,10 +204,10 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Место проживания": "Accommodation",
   "Магнитные пески · 5★ отель": "Magnetic sands · 5★ hotel",
   "Проживание в отеле 5★ на магнитных песках у моря": "Stay at a 5★ hotel on magnetic sands by the sea",
-  "Общий вид отеля: бассейн": "Hotel overview: pool",
-  "Номер отеля": "Hotel room",
-  "Ванная в номере": "Bathroom in the room",
-  "Джакузи в зоне отдыха": "Jacuzzi in the lounge area",
+  "Панорамный бассейн у моря": "Panoramic pool by the sea",
+  "Номер с видом на море": "Sea-view room",
+  "Ванная с панорамным окном": "Bathroom with a panoramic window",
+  "Приватное джакузи для отдыха": "Private jacuzzi for relaxation",
   "На магнитных песках": "On magnetic sands",
   "Отель 5★": "5★ hotel",
   "Черное море рядом": "Black Sea nearby",
@@ -299,7 +299,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Выезд участников": "Participants departure",
   "Участие в ретрите": "Retreat participation",
   "Цена участия": "Participation price",
-  "10% скидка до 20 апреля": "10% discount until April 20",
+  "88.000 при оплате до 30 апреля · 99.000 после": "88,000 when paid before April 30 · 99,000 after",
   "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
   "Что входит в стоимость": "What is included",
   "Трансфер по программе": "Program transfers",
@@ -951,43 +951,37 @@ export default function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <figure className="relative overflow-hidden md:row-span-2" style={{ borderRadius: R, minHeight: "clamp(300px, 44vw, 520px)" }}>
-            <img src={hotelPoolImage} alt={t("Общий вид отеля: бассейн")} className="absolute inset-0 w-full h-full object-cover" />
+            <img src={hotelPoolImage} alt={t("Панорамный бассейн у моря")} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
             <figcaption className="absolute bottom-0 left-0 right-0 p-6">
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.2rem, 2.6vw, 1.9rem)", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
-                {t("Общий вид отеля: бассейн")}
+                {t("Панорамный бассейн у моря")}
               </p>
             </figcaption>
           </figure>
 
           <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(190px, 24vw, 255px)" }}>
-            <img src={hotelRoomImage} alt={t("Номер отеля")} className="absolute inset-0 w-full h-full object-cover" />
+            <img src={hotelRoomImage} alt={t("Номер с видом на море")} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-            <figcaption className="absolute bottom-0 left-0 right-0 p-4">
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
-                {t("Номер отеля")}
-              </p>
-            </figcaption>
+            <div className="absolute top-4 left-4">
+              <Pill light>{t("Номер с видом на море")}</Pill>
+            </div>
           </figure>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3">
             <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(170px, 22vw, 240px)" }}>
-              <img src={hotelBathroomImage} alt={t("Ванная в номере")} className="absolute inset-0 w-full h-full object-cover" />
+              <img src={hotelBathroomImage} alt={t("Ванная с панорамным окном")} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-              <figcaption className="absolute bottom-0 left-0 right-0 p-4">
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
-                  {t("Ванная в номере")}
-                </p>
-              </figcaption>
+              <div className="absolute top-4 left-4">
+                <Pill light>{t("Ванная с панорамным окном")}</Pill>
+              </div>
             </figure>
             <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(170px, 22vw, 240px)" }}>
-              <img src={hotelJacuzziImage} alt={t("Джакузи в зоне отдыха")} className="absolute inset-0 w-full h-full object-cover" />
+              <img src={hotelJacuzziImage} alt={t("Приватное джакузи для отдыха")} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-              <figcaption className="absolute bottom-0 left-0 right-0 p-4">
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 400, color: "#fff", lineHeight: 1.2 }}>
-                  {t("Джакузи в зоне отдыха")}
-                </p>
-              </figcaption>
+              <div className="absolute top-4 left-4">
+                <Pill light>{t("Приватное джакузи для отдыха")}</Pill>
+              </div>
             </figure>
           </div>
         </div>
@@ -1281,9 +1275,9 @@ export default function App() {
             <div className="relative z-10">
               <Pill light>{t("Цена участия")}</Pill>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1, marginTop: 16 }}>
-                88 000 ₽ — 999$
+                88.000 ₽ — 99.000 ₽
               </p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>{t("10% скидка до 20 апреля")}</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>{t("88.000 при оплате до 30 апреля · 99.000 после")}</p>
             </div>
             <div className="relative z-10 mt-8">
               <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="block text-center py-3.5 transition-colors hover:bg-[#9a7a4e]" style={{ background: "#b08d5e", borderRadius: "14px", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>
