@@ -118,8 +118,8 @@ const included = [
   { icon: "💆", text: "Биоэнергетический массаж" },
   { icon: "🐴", text: "Иппотерапия" },
   { icon: "🍞", text: "Мастер-класс по изготовлению грузинского хлеба" },
-  { icon: "🛁", text: "Баня" },
-  { icon: "🗺️", text: "2 экскурсии" },
+  { icon: "♨️", text: "Горячие серные источники" },
+  { icon: "⛰️", text: "Экскурсия в горы" },
 ];
 
 const Pill = ({ children, light = false }: { children: ReactNode; light?: boolean }) => (
@@ -299,7 +299,8 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Выезд участников": "Participants departure",
   "Участие в ретрите": "Retreat participation",
   "Цена участия": "Participation price",
-  "88.000 при оплате до 30 апреля · 99.000 после": "88,000 when paid before April 30 · 99,000 after",
+  "88 000 ₽ (при оплате до 30 апреля)": "88,000 ₽ (when paid before April 30)",
+  "99 000 ₽ после": "99,000 ₽ after",
   "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
   "Что входит в стоимость": "What is included",
   "Трансфер по программе": "Program transfers",
@@ -310,6 +311,8 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Йога на берегу моря": "Yoga by the sea shore",
   "Фотосессия на лошадях": "Horse photo session",
   "Биоэнергетический массаж": "Bioenergetic massage",
+  "Горячие серные источники": "Hot sulfur springs",
+  "Экскурсия в горы": "Mountain excursion",
   "2 экскурсии": "2 excursions",
   "Возможен вариант 3-дневной практики голодания по желанию, под присмотром специалиста.": "Optional 3-day fasting practice under specialist supervision.",
   "Связаться": "Contact",
@@ -1274,10 +1277,10 @@ export default function App() {
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: "cover", backgroundPosition: "top", borderRadius: R }} />
             <div className="relative z-10">
               <Pill light>{t("Цена участия")}</Pill>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1, marginTop: 16 }}>
-                88.000 ₽ — 99.000 ₽
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem, 4.4vw, 3.2rem)", fontWeight: 400, color: "#fff", lineHeight: 1.15, marginTop: 16 }}>
+                <span className="block">{t("88 000 ₽ (при оплате до 30 апреля)")}</span>
+                <span className="block mt-2">{t("99 000 ₽ после")}</span>
               </p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>{t("88.000 при оплате до 30 апреля · 99.000 после")}</p>
             </div>
             <div className="relative z-10 mt-8">
               <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="block text-center py-3.5 transition-colors hover:bg-[#9a7a4e]" style={{ background: "#b08d5e", borderRadius: "14px", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>
