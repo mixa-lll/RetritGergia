@@ -37,72 +37,69 @@ const R = "28px"; // global bento border-radius
 
 const days = [
   {
-    day: "День 1", date: "3 июня", title: "Заезд и мягкая настройка",
+    day: "День 1", date: "15 сентября", title: "Заезд и настройка на ретрит",
     emoji: "🌅", icon: dayIcon1,
     items: [
-      { time: "15:00–17:00", text: "Заезд участников, размещение в отеле 5★" },
-      { time: "17:30–18:30", text: "Круг знакомств и открытие ретрита" },
-      { time: "19:00–20:00", text: "Ужин" },
-      { time: "20:30–22:00", text: "Медитация намерения на ретрит" },
+      { time: "14:00", text: "Заезд участников и размещение в отеле 5★" },
+      { time: "15:30", text: "Приветственный ланч" },
+      { time: "19:30–21:00", text: "Гонг-медитация на берегу моря и намерение на ретрит" },
     ],
   },
   {
-    day: "День 2", date: "4 июня", title: "Море и звуки",
+    day: "День 2", date: "16 сентября", title: "Йога, восстановление и лошади",
     emoji: "🌊", icon: dayIcon2,
     items: [
-      { time: "07:30–09:00", text: "Утренняя йога у моря" },
-      { time: "09:00–10:00", text: "Завтрак" },
-      { time: "10:30–13:00", text: "Групповая регрессия" },
-      { time: "13:30–14:30", text: "Обед" },
-      { time: "15:00–18:00", text: "Свободное время / море / биоэнергетический массаж / фотосессия и иппотерапия с лошадьми" },
-      { time: "19:00–20:00", text: "Ужин" },
-      { time: "20:30–21:30", text: "Гонг-медитация на море" },
+      { time: "08:30–09:30", text: "Йога" },
+      { time: "10:00–11:00", text: "Завтрак" },
+      { time: "11:30–18:00", text: "Биоэнергетический массаж, релакс и свободное время" },
+      { time: "18:30–21:00", text: "Иппотерапия и фотосессия на лошадях" },
     ],
   },
   {
-    day: "День 3", date: "5 июня", title: "Горы и традиции",
+    day: "День 3", date: "17 сентября", title: "Практики и фотосессия",
     emoji: "⛰️", icon: dayIcon3,
     items: [
-      { time: "07:30–09:00", text: "Утренняя йога" },
-      { time: "09:00–10:00", text: "Завтрак" },
-      { time: "10:30–13:00", text: "Мастер-класс по изготовлению грузинского хлеба" },
-      { time: "13:30–14:30", text: "Обед" },
-      { time: "14:30–17:00", text: "Отдых / свободное время" },
-      { time: "17:00+", text: "Экскурсия в Гомис Мта — горная деревня на высоте 2100 м: панорамы, медитация, пикник" },
-      { time: "20:30–21:30", text: "Вечерний круг" },
+      { time: "08:30–09:30", text: "Йога" },
+      { time: "10:00–11:00", text: "Завтрак" },
+      { time: "11:30–18:00", text: "Биоэнергетический массаж" },
+      { time: "18:30–21:00", text: "Иппотерапия и фотосессия с лошадьми" },
     ],
   },
   {
-    day: "День 4", date: "6 июня", title: "Восстановление",
+    day: "День 4", date: "18 сентября", title: "Магнитные пески и горы",
     emoji: "🧖", icon: dayIcon4,
     items: [
-      { time: "07:30–08:30", text: "Йога" },
-      { time: "09:00–10:00", text: "Завтрак" },
-      { time: "10:30–13:00", text: "Групповая регрессия (сессия 2)" },
-      { time: "13:30–14:30", text: "Обед" },
-      { time: "15:00–18:00", text: "Баня, травяной чай, купание в море" },
-      { time: "19:00–20:00", text: "Ужин" },
-      { time: "20:30–21:30", text: "Гонг-медитация на море" },
+      { time: "08:30–09:30", text: "Йога" },
+      { time: "10:00–11:00", text: "Завтрак" },
+      { time: "11:30–15:30", text: "Выезд на магнитные пески с посещением парка поющих скульптур" },
+      { time: "16:00", text: "Выезд в горы на закат и гонг-медитация в горах" },
     ],
   },
   {
-    day: "День 5", date: "7 июня", title: "День Силы и источников",
+    day: "День 5", date: "19 сентября", title: "Горячие источники и звукотерапия",
     emoji: "♨️", icon: dayIcon5,
     items: [
-      { time: "07:30–08:30", text: "Йога на море" },
-      { time: "09:00–10:00", text: "Завтрак" },
-      { time: "10:30–17:00", text: "Поездка на горячие сульфатные источники, купание в горной реке, обед на природе" },
-      { time: "18:30–19:30", text: "Ужин" },
-      { time: "20:30–22:00", text: "Закрывающая церемония ретрита — благодарности, медитация, ритуал на море" },
+      { time: "08:30–09:30", text: "Йога" },
+      { time: "10:00–11:00", text: "Завтрак" },
+      { time: "11:30–21:00", text: "Выезд на горячие источники с пикником на горной реке, звукотерапия с сессией регресса и посещение действующего маяка" },
     ],
   },
   {
-    day: "День 6", date: "8 июня", title: "Завершение",
+    day: "День 6", date: "20 сентября", title: "Традиции и завершающий вечер",
     emoji: "🌿", icon: dayIcon6,
     items: [
-      { time: "09:00–10:00", text: "Завтрак" },
-      { time: "10:00–11:00", text: "Круг завершения" },
-      { time: "11:00–12:00", text: "Выезд участников" },
+      { time: "08:30–09:30", text: "Йога" },
+      { time: "10:00–11:00", text: "Завтрак" },
+      { time: "15:00–19:00", text: "Выезд на мастер-класс по изготовлению хинкали и хачапури с ужином" },
+      { time: "20:00", text: "Завершающий вечер, подведение итогов и костер на берегу моря" },
+    ],
+  },
+  {
+    day: "День 7", date: "21 сентября", title: "Завершение",
+    emoji: "🌿", icon: dayIcon6,
+    items: [
+      { time: "09:00–11:00", text: "Завтрак" },
+      { time: "12:00", text: "Выезд участников" },
     ],
   },
 ];
@@ -153,8 +150,8 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Авторский ретрит": "Signature retreat",
   "Грузия": "Georgia",
   "Ретрит, где ты вернёшься к себе настоящему": "A retreat where you return to your true self",
-  "июня": "June",
-  "июня 2026": "June 2026",
+  "сентября": "September",
+  "сентября 2026": "September 2026",
   "Знакомо?": "Feel familiar?",
   "Если узнаешь себя": "If you recognize yourself",
   "Бесконечный поток мыслей": "Endless flow of thoughts",
@@ -219,7 +216,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Двухместное размещение": "Double accommodation",
   "Шекветили": "Shekvetili",
   "Магическое место Грузии": "A magical place in Georgia",
-  "03 — 08 июня 2026": "03 — 08 June 2026",
+  "15 — 21 сентября 2026": "15 — 21 September 2026",
   "Практики": "Practices",
   "В программе ретрита": "Retreat program includes",
   "🌊 Практика": "🌊 Practice",
@@ -246,7 +243,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "· детокс": "· detox",
   "· перезапуск нервной системы": "· nervous system reset",
   "· полное отключение от суеты": "· complete disconnection from hustle",
-  "📅 3–8 июня · 5 ночей / 6 дней": "📅 June 3–8 · 5 nights / 6 days",
+  "📅 15–21 сентября · 7 дней трансформации": "📅 September 15–21 · 7 days of transformation",
   "🌊 Море": "🌊 Sea",
   "🧘 Йога": "🧘 Yoga",
   "⚡ Энергопрактики": "⚡ Energy practices",
@@ -254,48 +251,43 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "💆 Восстановление": "💆 Recovery",
   "🔔 Гонг": "🔔 Gong",
   "🐴 Иппотерапия": "🐴 Hippotherapy",
-  "Программа по дням": "Day-by-day program",
+  "Расписание на ретрит": "Retreat schedule",
   "День 1": "Day 1",
   "День 2": "Day 2",
   "День 3": "Day 3",
   "День 4": "Day 4",
   "День 5": "Day 5",
   "День 6": "Day 6",
-  "3 июня": "June 3",
-  "4 июня": "June 4",
-  "5 июня": "June 5",
-  "6 июня": "June 6",
-  "7 июня": "June 7",
-  "8 июня": "June 8",
+  "День 7": "Day 7",
+  "15 сентября": "September 15",
+  "16 сентября": "September 16",
+  "17 сентября": "September 17",
+  "18 сентября": "September 18",
+  "19 сентября": "September 19",
+  "20 сентября": "September 20",
+  "21 сентября": "September 21",
   "событий": "events",
-  "Заезд и мягкая настройка": "Arrival and gentle tuning",
-  "Море и звуки": "Sea and sounds",
-  "Горы и традиции": "Mountains and traditions",
-  "Восстановление": "Recovery",
-  "День Силы и источников": "Day of power and springs",
+  "Заезд и настройка на ретрит": "Arrival and retreat tuning",
+  "Йога, восстановление и лошади": "Yoga, recovery, and horses",
+  "Практики и фотосессия": "Practices and photo session",
+  "Магнитные пески и горы": "Magnetic sands and mountains",
+  "Горячие источники и звукотерапия": "Hot springs and sound therapy",
+  "Традиции и завершающий вечер": "Traditions and closing evening",
   "Завершение": "Completion",
-  "Заезд участников, размещение в отеле 5★": "Participants arrival and 5★ hotel check-in",
-  "Круг знакомств и открытие ретрита": "Introduction circle and retreat opening",
-  "Ужин": "Dinner",
-  "Медитация намерения на ретрит": "Intention meditation for the retreat",
-  "Утренняя йога у моря": "Morning yoga by the sea",
-  "Завтрак": "Breakfast",
-  "Групповая регрессия": "Group regression",
-  "Обед": "Lunch",
-  "Свободное время / море / биоэнергетический массаж / фотосессия и иппотерапия с лошадьми": "Free time / sea / bioenergetic massage / photo session and hippotherapy with horses",
-  "Гонг-медитация на море": "Gong meditation by the sea",
-  "Утренняя йога": "Morning yoga",
-  "Мастер-класс по изготовлению грузинского хлеба": "Georgian bread masterclass",
-  "Отдых / свободное время": "Rest / free time",
-  "Экскурсия в Гомис Мта — горная деревня на высоте 2100 м: панорамы, медитация, пикник": "Excursion to Gomis Mta — mountain village at 2100 m: panoramas, meditation, picnic",
-  "Вечерний круг": "Evening circle",
+  "Заезд участников и размещение в отеле 5★": "Participants arrival and 5★ hotel check-in",
+  "Приветственный ланч": "Welcome lunch",
+  "Гонг-медитация на берегу моря и намерение на ретрит": "Gong meditation by the sea and retreat intention",
   "Йога": "Yoga",
-  "Групповая регрессия (сессия 2)": "Group regression (session 2)",
-  "Баня, травяной чай, купание в море": "Bathhouse, herbal tea, and sea swimming",
-  "Йога на море": "Yoga by the sea",
-  "Поездка на горячие сульфатные источники, купание в горной реке, обед на природе": "Trip to hot sulfate springs, mountain river swimming, outdoor lunch",
-  "Закрывающая церемония ретрита — благодарности, медитация, ритуал на море": "Closing retreat ceremony — gratitude, meditation, ritual by the sea",
-  "Круг завершения": "Closing circle",
+  "Завтрак": "Breakfast",
+  "Биоэнергетический массаж, релакс и свободное время": "Bioenergetic massage, relaxation, and free time",
+  "Иппотерапия и фотосессия на лошадях": "Hippotherapy and horse photo session",
+  "Биоэнергетический массаж": "Bioenergetic massage",
+  "Иппотерапия и фотосессия с лошадьми": "Hippotherapy and photo session with horses",
+  "Выезд на магнитные пески с посещением парка поющих скульптур": "Trip to the magnetic sands with a visit to the singing sculptures park",
+  "Выезд в горы на закат и гонг-медитация в горах": "Mountain sunset trip and gong meditation in the mountains",
+  "Выезд на горячие источники с пикником на горной реке, звукотерапия с сессией регресса и посещение действующего маяка": "Hot springs trip with a mountain river picnic, sound therapy with regression session, and a visit to an active lighthouse",
+  "Выезд на мастер-класс по изготовлению хинкали и хачапури с ужином": "Khinkali and khachapuri masterclass with dinner",
+  "Завершающий вечер, подведение итогов и костер на берегу моря": "Closing evening, reflections, and a bonfire by the sea",
   "Выезд участников": "Participants departure",
   "Участие в ретрите": "Retreat participation",
   "Цена участия": "Participation price",
@@ -311,7 +303,6 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Групповые сессии регресса": "Group regression sessions",
   "Йога на берегу моря": "Yoga by the sea shore",
   "Фотосессия на лошадях": "Horse photo session",
-  "Биоэнергетический массаж": "Bioenergetic massage",
   "Горячие серные источники": "Hot sulfur springs",
   "Экскурсия в горы": "Mountain excursion",
   "2 экскурсии": "2 excursions",
@@ -328,7 +319,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Написать": "Write",
   "Быстрый ответ в личных сообщениях": "Fast reply in direct messages",
   "ВЫХОД ЕСТЬ · RETREAT GEORGIA": "WAY OUT · RETREAT GEORGIA",
-  "03–08 июня 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14": "June 3–8, 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14",
+  "15–21 сентября 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14": "September 15–21, 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14",
 };
 
 export default function App() {
@@ -646,13 +637,13 @@ export default function App() {
               }}
             >
               <div className="flex items-center gap-1.5 px-4" style={{ height: "100%" }}>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>3</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("июня")}</span>
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>15</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("сентября")}</span>
               </div>
               <div style={{ width: 20, height: "1px", background: "rgba(212,180,131,0.65)", flexShrink: 0 }} />
               <div className="flex items-center gap-1.5 px-4" style={{ height: "100%" }}>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>8</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("июня 2026")}</span>
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>21</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("сентября 2026")}</span>
               </div>
             </div>
             {/* CTA button */}
@@ -759,7 +750,7 @@ export default function App() {
           {/* Stats cards — side by side on mobile too */}
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-1 gap-3">
             <div className="p-6 md:p-8 flex flex-col justify-center" style={{ borderRadius: R, background: "#b08d5e" }}>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 6vw, 3rem)", fontWeight: 300, color: "#fff", lineHeight: 1 }}>6</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 6vw, 3rem)", fontWeight: 300, color: "#fff", lineHeight: 1 }}>7</p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.75)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 6 }}>{t("дней трансформации")}</p>
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center" style={{ borderRadius: R, background: "#e8dfd3" }}>
@@ -1127,7 +1118,7 @@ export default function App() {
 
         {/* Tour overview tags */}
         <div className="mt-3 p-7 flex flex-wrap gap-2 items-center justify-center" style={{ borderRadius: R, background: "#fff" }}>
-          <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#8c7a68", marginRight: 8 }}>{t("📅 3–8 июня · 5 ночей / 6 дней")}</span>
+          <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#8c7a68", marginRight: 8 }}>{t("📅 15–21 сентября · 7 дней трансформации")}</span>
           {["🌊 Море", "🧘 Йога", "⚡ Энергопрактики", "🗺 Экскурсии", "💆 Восстановление", "🔔 Гонг", "🐴 Иппотерапия"].map((tag, i) => (
             <span key={i} className="px-4 py-2" style={{ borderRadius: "100px", background: "#f0ebe2", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "#5a4a38" }}>{t(tag)}</span>
           ))}
@@ -1139,14 +1130,14 @@ export default function App() {
         <div className="mb-8 pt-4 text-center">
           <Pill>{t("Расписание")}</Pill>
           <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.8rem)", fontWeight: 300, color: "#2c2419" }}>
-            {t("Программа по дням")}
+            {t("Расписание на ретрит")}
           </h2>
         </div>
 
         <div className="flex flex-col gap-2">
           {daysLocalized.map((day, i) => {
             const isOpen = openDay === i;
-            const accent = ["#b08d5e","#8c7a68","#6a8c7a","#7a6a8c","#b08d5e","#8c7a68"][i];
+            const accent = ["#b08d5e", "#8c7a68", "#6a8c7a", "#7a6a8c", "#b08d5e", "#8c7a68", "#6a8c7a"][i];
             return (
               <div
                 key={i}
@@ -1443,7 +1434,7 @@ export default function App() {
             {t("ВЫХОД ЕСТЬ · RETREAT GEORGIA")}
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "#998a78", letterSpacing: "0.02em" }}>
-            {t("03–08 июня 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14")}
+            {t("15–21 сентября 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14")}
           </p>
         </div>
       </footer>
