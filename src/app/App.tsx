@@ -2,7 +2,6 @@ import heroImage from "@/assets/1a36169f5ae242c6ab59db3d9a9f50ebaf3b9f63.png";
 import gongImage from "@/assets/38e9ea5e112a6693cbbf0652892f6af500f567e1.png";
 import hotelPoolImage from "@/assets/hotel_pool.png";
 import hotelRoomImage from "@/assets/Hotel_room.png";
-import hotelBathroomImage from "@/assets/Hotel_room_bathroom.png";
 import hotelJacuzziImage from "@/assets/Hotel_Jacuzzi.png";
 import yogaActivity from "@/assets/64cc803dcd5688821c4e72f955d8e2694e19b15d.png";
 import horsesActivity from "@/assets/0f9d9598a4376081fcf0e878bb1af73ddd138e30.png";
@@ -114,7 +113,7 @@ const included = [
   { icon: "📸", text: "Фотосессия на лошадях" },
   { icon: "💆", text: "Биоэнергетический массаж" },
   { icon: "🐴", text: "Иппотерапия" },
-  { icon: "🍞", text: "Мастер-класс по изготовлению грузинского хлеба" },
+  { icon: "🥟", text: "Мастер-класс по изготовлению хинкали и хачапури" },
   { icon: "♨️", text: "Горячие серные источники" },
   { icon: "⛰️", text: "Экскурсия в горы" },
 ];
@@ -203,7 +202,6 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Проживание в отеле 5★ на магнитных песках у моря": "Stay at a 5★ hotel on magnetic sands by the sea",
   "Панорамный бассейн у моря": "Panoramic pool by the sea",
   "Номер с видом на море": "Sea-view room",
-  "Ванная с панорамным окном": "Bathroom with a panoramic window",
   "Приватное джакузи для отдыха": "Private jacuzzi for relaxation",
   "На магнитных песках": "On magnetic sands",
   "Отель 5★": "5★ hotel",
@@ -291,9 +289,11 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Выезд участников": "Participants departure",
   "Участие в ретрите": "Retreat participation",
   "Цена участия": "Participation price",
-  "88 000 ₽": "88,000 ₽",
-  "при оплате до 30 апреля": "when paid before April 30",
-  "99 000 ₽ после": "99,000 ₽ after",
+  "150 000 ₽": "150,000 ₽",
+  "130 000 ₽": "130,000 ₽",
+  "при оплате до 1 августа": "when paid before August 1",
+  "Размещение двухместное": "Double accommodation",
+  "Доплата за одноместное размещение — 30 000 ₽": "Single accommodation supplement — 30,000 ₽",
   "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
   "Что входит в стоимость": "What is included",
   "Трансфер по программе": "Program transfers",
@@ -303,6 +303,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Групповые сессии регресса": "Group regression sessions",
   "Йога на берегу моря": "Yoga by the sea shore",
   "Фотосессия на лошадях": "Horse photo session",
+  "Мастер-класс по изготовлению хинкали и хачапури": "Khinkali and khachapuri masterclass",
   "Горячие серные источники": "Hot sulfur springs",
   "Экскурсия в горы": "Mountain excursion",
   "2 экскурсии": "2 excursions",
@@ -965,13 +966,6 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3">
             <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(170px, 22vw, 240px)" }}>
-              <img src={hotelBathroomImage} alt={t("Ванная с панорамным окном")} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-              <div className="absolute top-4 left-4">
-                <Pill light>{t("Ванная с панорамным окном")}</Pill>
-              </div>
-            </figure>
-            <figure className="relative overflow-hidden" style={{ borderRadius: R, minHeight: "clamp(170px, 22vw, 240px)" }}>
               <img src={hotelJacuzziImage} alt={t("Приватное джакузи для отдыха")} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute top-4 left-4">
@@ -1269,15 +1263,23 @@ export default function App() {
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: "cover", backgroundPosition: "top", borderRadius: R }} />
             <div className="relative z-10">
               <Pill light>{t("Цена участия")}</Pill>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 400, color: "#fff", lineHeight: 1, marginTop: 16 }}>
-                {t("88 000 ₽")}
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.7rem, 3vw, 2.2rem)", fontWeight: 300, color: "rgba(255,255,255,0.52)", lineHeight: 1, marginTop: 16, textDecoration: "line-through", textDecorationThickness: "1px" }}>
+                {t("150 000 ₽")}
+              </p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 400, color: "#fff", lineHeight: 1, marginTop: 8 }}>
+                {t("130 000 ₽")}
               </p>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>
-                {t("при оплате до 30 апреля")}
+                {t("при оплате до 1 августа")}
               </p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", fontWeight: 400, color: "rgba(255,255,255,0.9)", marginTop: 8 }}>
-                {t("99 000 ₽ после")}
-              </p>
+              <div className="mt-5 flex flex-col gap-2">
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(255,255,255,0.78)", lineHeight: 1.45 }}>
+                  {t("Размещение двухместное")}
+                </p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "rgba(255,255,255,0.56)", lineHeight: 1.45 }}>
+                  * {t("Доплата за одноместное размещение — 30 000 ₽")}
+                </p>
+              </div>
             </div>
             <div className="relative z-10 mt-8">
               <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="block text-center py-3.5 transition-colors hover:bg-[#9a7a4e]" style={{ background: "#b08d5e", borderRadius: "14px", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>
