@@ -142,6 +142,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Ведущии": "Hosts",
   "Программа": "Program",
   "Расписание": "Schedule",
+  "Отзывы": "Reviews",
   "Стоимость": "Pricing",
   "Забронировать": "Book now",
   "Забронировать место": "Book your spot",
@@ -197,6 +198,15 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Целитель — диагностика здоровья, рекомендации лечения с использованием натуральной медицины": "Healer — health diagnostics and treatment recommendations using natural medicine",
   "Работа с лошадьми": "Work with horses",
   "Иппотерапия как инструмент исцеления и познания себя": "Hippotherapy as a tool for healing and self-discovery",
+  "Отзывы участниц": "Participant reviews",
+  "Живые впечатления после ретрита": "Real impressions after the retreat",
+  "Послушайте, как участницы описывают состояние, атмосферу и изменения после практик.": "Hear how participants describe their state, the atmosphere, and the changes after the practices.",
+  "Отзыв участницы": "Participant review",
+  "Личный опыт": "Personal experience",
+  "После практик": "After the practices",
+  "О состоянии после программы": "About the state after the program",
+  "О внутренней опоре и атмосфере": "About inner support and atmosphere",
+  "О практике, море и восстановлении": "About practice, the sea, and recovery",
   "Место проживания": "Accommodation",
   "Магнитные пески · 5★ отель": "Magnetic sands · 5★ hotel",
   "Проживание в отеле 5★ на магнитных песках у моря": "Stay at a 5★ hotel on magnetic sands by the sea",
@@ -391,6 +401,27 @@ export default function App() {
     },
   ];
 
+  const reviewVideos = [
+    {
+      src: "https://player.vimeo.com/video/1205114986?badge=0&autopause=0&player_id=0&app_id=58479",
+      title: "Отзыв участницы",
+      label: "Личный опыт",
+      text: "О состоянии после программы",
+    },
+    {
+      src: "https://player.vimeo.com/video/1205114985?badge=0&autopause=0&player_id=0&app_id=58479",
+      title: "Отзыв участницы",
+      label: "После практик",
+      text: "О внутренней опоре и атмосфере",
+    },
+    {
+      src: "https://player.vimeo.com/video/1205114864?badge=0&autopause=0&player_id=0&app_id=58479",
+      title: "Отзыв участницы",
+      label: "Личный опыт",
+      text: "О практике, море и восстановлении",
+    },
+  ];
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
@@ -428,6 +459,7 @@ export default function App() {
   const navLinks = [
     { label: t("О ретрите"), id: "about" },
     { label: t("Ведущии"), id: "host" },
+    { label: t("Отзывы"), id: "reviews" },
     { label: t("Программа"), id: "program" },
     { label: t("Расписание"), id: "schedule" },
     { label: t("Стоимость"), id: "pricing" },
@@ -439,6 +471,12 @@ export default function App() {
     pill: t(item.pill),
     title: t(item.title),
     descLines: item.descLines.map((line) => t(line)),
+  }));
+  const reviewVideosLocalized = reviewVideos.map((item) => ({
+    ...item,
+    title: t(item.title),
+    label: t(item.label),
+    text: t(item.text),
   }));
   const daysLocalized = days.map((day) => ({
     ...day,
@@ -932,6 +970,83 @@ export default function App() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── REVIEWS ── */}
+      <section id="reviews" className="pt-14 pb-4 px-4 max-w-6xl mx-auto">
+        <div
+          className="relative overflow-hidden p-6 md:p-10"
+          style={{
+            borderRadius: R,
+            background: "linear-gradient(145deg, #fff 0%, #f7f1e7 58%, #eadfce 100%)",
+            border: "1px solid rgba(176,141,94,0.18)",
+            boxShadow: "0 18px 44px rgba(44,36,25,0.08)",
+          }}
+        >
+          <div className="absolute -top-20 -right-16 h-56 w-56 rounded-full" style={{ background: "rgba(176,141,94,0.12)", filter: "blur(4px)" }} />
+          <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full" style={{ background: "rgba(106,140,122,0.12)", filter: "blur(6px)" }} />
+
+          <div className="relative z-10 mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <Pill>{t("Отзывы")}</Pill>
+              <h2 className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 4vw, 2.9rem)", fontWeight: 300, color: "#2c2419", lineHeight: 1.08 }}>
+                {t("Отзывы участниц")}
+              </h2>
+              <p className="mt-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.18rem", color: "#8c7a68", fontStyle: "italic", lineHeight: 1.65 }}>
+                {t("Послушайте, как участницы описывают состояние, атмосферу и изменения после практик.")}
+              </p>
+            </div>
+            <div className="hidden md:block text-right">
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 400, color: "#8c6a3e", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                {t("Живые впечатления после ретрита")}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {reviewVideosLocalized.map((video, i) => (
+              <article key={video.src} className="mx-auto w-full max-w-[330px]">
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    borderRadius: "30px",
+                    background: "#1f1914",
+                    boxShadow: "0 18px 34px rgba(44,36,25,0.18)",
+                    border: "1px solid rgba(255,255,255,0.5)",
+                  }}
+                >
+                  <div style={{ aspectRatio: "9 / 16" }}>
+                    <iframe
+                      src={video.src}
+                      title={`${video.title} ${i + 1}`}
+                      className="absolute inset-0 h-full w-full"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div className="mt-3 rounded-[22px] bg-white px-5 py-4" style={{ boxShadow: "0 10px 22px rgba(44,36,25,0.06)" }}>
+                  <div className="flex items-center justify-between gap-3">
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.67rem", fontWeight: 500, color: "#8c6a3e", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                      {video.label}
+                    </p>
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full" style={{ background: "#2c2419", color: "#fff", fontFamily: "'Inter', sans-serif", fontSize: "0.72rem" }}>
+                      {i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 400, color: "#2c2419", lineHeight: 1.15 }}>
+                    {video.title}
+                  </h3>
+                  <p className="mt-1" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "#8c7a68", lineHeight: 1.45 }}>
+                    {video.text}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
