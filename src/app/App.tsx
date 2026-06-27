@@ -294,7 +294,7 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "при оплате до 1 августа": "when paid before August 1",
   "Размещение двухместное": "Double accommodation",
   "Доплата за одноместное размещение — 30 000 ₽": "Single accommodation supplement — 30,000 ₽",
-  "+ авиабилеты ~30 000 ₽": "+ flights ~30,000 ₽",
+  "+ авиаперелет": "+ flight",
   "Что входит в стоимость": "What is included",
   "Трансфер по программе": "Program transfers",
   "Проживание в отеле 5★": "Accommodation in a 5★ hotel",
@@ -318,6 +318,8 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Позвонить по номеру +995 593 572 613": "Call +995 593 572 613",
   "Кнопка позвонить по номеру +995 593 572 613": "Call button for +995 593 572 613",
   "Написать": "Write",
+  "Страница ретрита": "Retreat page",
+  "Открыть": "Open",
   "Быстрый ответ в личных сообщениях": "Fast reply in direct messages",
   "ВЫХОД ЕСТЬ · RETREAT GEORGIA": "WAY OUT · RETREAT GEORGIA",
   "15–21 сентября 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14": "September 15–21, 2026 · RU: +7 903 231 14 51 · GE: +995 593 572 613 · @veravenera14",
@@ -1286,7 +1288,7 @@ export default function App() {
                 {t("Забронировать место")}
               </a>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.35)", textAlign: "center", marginTop: 10, letterSpacing: "0.05em" }}>
-                {t("+ авиабилеты ~30 000 ₽")}
+                {t("+ авиаперелет")}
               </p>
             </div>
           </div>
@@ -1328,7 +1330,7 @@ export default function App() {
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "rgba(255,255,255,0.72)", marginTop: 10, lineHeight: 1.55 }}>
             {t("Запись и вопросы по ретриту")}
           </p>
-          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
           {/* Phone card */}
           <div
             className="p-9 flex flex-col justify-between hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
@@ -1422,6 +1424,50 @@ export default function App() {
                 }}
               >
                 {t("Написать")}
+              </a>
+            </div>
+          </div>
+
+          {/* Instagram card */}
+          <div
+            className="p-9 flex flex-col justify-between hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            style={{ borderRadius: R, background: "linear-gradient(180deg, rgba(193,85,126,0.24) 0%, rgba(95,45,72,0.34) 100%)", border: "1px solid rgba(255,190,213,0.24)", boxShadow: "0 10px 26px rgba(44,16,28,0.34)", transition: cardTransition }}
+          >
+            <span className="inline-flex items-center justify-center" style={{ width: 54, height: 54, borderRadius: "16px", background: "rgba(255,255,255,0.12)", color: "#ffbfd1" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" strokeWidth="1.8"/>
+                <circle cx="12" cy="12" r="3.6" stroke="currentColor" strokeWidth="1.8"/>
+                <circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/>
+              </svg>
+            </span>
+            <div>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "rgba(255,210,226,0.88)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Instagram</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 500, color: "#fff", lineHeight: 1.2, marginBottom: 6 }}>
+                {t("Страница ретрита")}
+              </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(255,255,255,0.76)", lineHeight: 1.45, marginBottom: 14 }}>
+                instagram.com/p/DZkL44Fuz6k
+              </p>
+              <a
+                href="https://www.instagram.com/p/DZkL44Fuz6k/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7ea8] focus-visible:ring-offset-2 motion-reduce:transition-none"
+                style={{
+                  borderRadius: "14px",
+                  background: "linear-gradient(180deg, #df6f98 0%, #b64873 100%)",
+                  color: "#fff",
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  boxShadow: "0 8px 18px rgba(197,78,121,0.28)",
+                  transition: `transform ${motionDurationFast} ${motionEaseStandard}, filter ${motionDurationFast} ${motionEaseStandard}`,
+                }}
+              >
+                {t("Открыть")}
               </a>
             </div>
           </div>
