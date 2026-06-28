@@ -403,19 +403,19 @@ export default function App() {
 
   const reviewVideos = [
     {
-      src: "https://player.vimeo.com/video/1205114986?badge=0&autopause=0&player_id=0&app_id=58479",
+      src: "https://player.vimeo.com/video/1205114986?badge=0&autopause=0&title=0&byline=0&portrait=0&dnt=1",
       title: "Отзыв участницы",
       label: "Личный опыт",
       text: "О состоянии после программы",
     },
     {
-      src: "https://player.vimeo.com/video/1205114985?badge=0&autopause=0&player_id=0&app_id=58479",
+      src: "https://player.vimeo.com/video/1205114985?badge=0&autopause=0&title=0&byline=0&portrait=0&dnt=1",
       title: "Отзыв участницы",
       label: "После практик",
       text: "О внутренней опоре и атмосфере",
     },
     {
-      src: "https://player.vimeo.com/video/1205114864?badge=0&autopause=0&player_id=0&app_id=58479",
+      src: "https://player.vimeo.com/video/1205114864?badge=0&autopause=0&title=0&byline=0&portrait=0&dnt=1",
       title: "Отзыв участницы",
       label: "Личный опыт",
       text: "О практике, море и восстановлении",
@@ -1019,7 +1019,7 @@ export default function App() {
                   <div style={{ aspectRatio: "9 / 16" }}>
                     <iframe
                       src={video.src}
-                      title={`${video.title} ${i + 1}`}
+                      aria-label={`${video.title} ${i + 1}`}
                       className="absolute inset-0 h-full w-full"
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
