@@ -150,6 +150,9 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Авторский ретрит": "Signature retreat",
   "Грузия": "Georgia",
   "Ретрит, где ты вернёшься к себе настоящему": "A retreat where you return to your true self",
+  "Даты ретрита": "Retreat dates",
+  "7 дней трансформации": "7 days of transformation",
+  "Грузия · Чёрное море": "Georgia · Black Sea",
   "сентября": "September",
   "сентября 2026": "September 2026",
   "Знакомо?": "Feel familiar?",
@@ -591,125 +594,153 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section id="hero" className="relative overflow-hidden" style={{ height: "100svh", minHeight: 640, borderRadius: "0 0 36px 36px" }}>
-        <img src={heroImage} alt={t("Ретрит в Грузии")} className="absolute inset-0 w-full h-full object-cover object-[45%_center] md:object-center" />
-        {/* Strong gradient — heavier at bottom */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.75) 100%)", borderRadius: "0 0 36px 36px" }} />
+      <section
+        id="hero"
+        className="relative overflow-hidden"
+        style={{ height: "100svh", minHeight: 680, borderRadius: "0 0 36px 36px", background: "#211a14" }}
+      >
+        <img
+          src={heroImage}
+          alt={t("Ретрит в Грузии")}
+          className="absolute inset-0 h-full w-full object-cover object-[45%_center] md:object-center"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(90deg, rgba(20,16,12,0.64) 0%, rgba(20,16,12,0.2) 46%, rgba(20,16,12,0.04) 72%), linear-gradient(180deg, rgba(16,13,10,0.18) 0%, rgba(16,13,10,0.03) 45%, rgba(16,13,10,0.76) 100%)",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-3 rounded-[28px] border md:inset-5"
+          style={{ borderColor: "rgba(255,255,255,0.22)" }}
+          aria-hidden="true"
+        />
 
-        {/* Title — anchored to top */}
-        <div className="absolute inset-x-0 top-0 z-10 flex flex-col px-6 pt-16 md:px-10 md:pt-20 md:items-center md:text-center">
-          <div className="mb-4 flex flex-wrap items-center gap-2">
-            <span
-              className="inline-flex items-center px-4 py-1.5 text-xs tracking-widest uppercase"
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-between px-6 pb-5 pt-20 md:px-10 md:pb-8 md:pt-24">
+          <div className="max-w-5xl">
+            <div className="mb-5 flex flex-wrap items-center gap-2">
+              <span
+                className="inline-flex items-center rounded-full px-4 py-1.5"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.68rem",
+                  fontWeight: 400,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.9)",
+                  background: "rgba(28,23,18,0.34)",
+                  border: "1px solid rgba(255,255,255,0.24)",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                {t("Авторский ретрит")}
+              </span>
+              <span
+                className="inline-flex items-center gap-2 rounded-full px-4 py-1.5"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.68rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "#2c2419",
+                  background: "#ead7b9",
+                }}
+              >
+                <span aria-hidden="true">🇬🇪</span>
+                {t("Грузия")}
+              </span>
+            </div>
+
+            <h1
+              className="text-white"
               style={{
-                borderRadius: "100px",
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 300,
-                background: "rgba(255,255,255,0.18)",
-                backdropFilter: "blur(6px)",
-                color: "rgba(255,255,255,0.8)",
-              }}
-            >
-              {t("Авторский ретрит")}
-            </span>
-            <span
-              className="inline-flex items-center px-4 py-1.5 text-xs tracking-widest uppercase"
-              style={{
-                borderRadius: "100px",
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 300,
-                background: "rgba(255,255,255,0.18)",
-                backdropFilter: "blur(6px)",
-                color: "rgba(255,255,255,0.8)",
-              }}
-            >
-              2026
-            </span>
-            <span
-              className="inline-flex items-center gap-1.5 px-5 py-1.5 text-xs tracking-widest uppercase"
-              style={{
-                borderRadius: "100px",
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: titleFont,
+                fontSize: "clamp(4.2rem, 11.8vw, 10rem)",
                 fontWeight: 600,
-                background: "#d4b483",
-                color: "#fff",
-                letterSpacing: "0.2em",
-                boxShadow: "0 2px 18px rgba(212,180,131,0.7)",
+                letterSpacing: "-0.045em",
+                lineHeight: 0.82,
+                textWrap: "balance",
               }}
             >
-              🇬🇪 {t("Грузия")}
-            </span>
-          </div>
-          <h1
-            className="text-white"
-            style={{
-              fontFamily: titleFont,
-              fontSize: "clamp(4.6rem, 18vw, 9rem)",
-              fontWeight: 600,
-              letterSpacing: "-0.01em",
-              lineHeight: 0.88,
-            }}
-          >
-            {t("ВЫХОД")}<br />
-            {t("ЕСТЬ")}
-          </h1>
-        </div>
+              <span className="block md:inline">{t("ВЫХОД")}</span>
+              <span className="block md:inline md:ml-[0.18em]">{t("ЕСТЬ")}</span>
+            </h1>
 
-        {/* Date + CTA — anchored to bottom */}
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col px-6 pb-10 md:px-10 md:pb-12 md:items-center">
-          <p
-            className="mb-5"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "1.2rem",
-              fontStyle: "italic",
-              color: "rgba(255,255,255,0.6)",
-              lineHeight: 1.7,
-            }}
-          >
-            {t("Ретрит, где ты вернёшься к себе настоящему")}
-          </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:justify-center">
-            {/* Date pill */}
-            <div
-              className="flex items-center"
+            <p
+              className="mt-5 max-w-md"
               style={{
-                borderRadius: "100px",
-                background: "rgba(255,255,255,0.10)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.16)",
-                height: 46,
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: "clamp(1.08rem, 2vw, 1.3rem)",
+                fontStyle: "italic",
+                color: "rgba(255,255,255,0.82)",
+                lineHeight: 1.45,
               }}
             >
-              <div className="flex items-center gap-1.5 px-4" style={{ height: "100%" }}>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>15</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("сентября")}</span>
+              {t("Ретрит, где ты вернёшься к себе настоящему")}
+            </p>
+          </div>
+
+          <div
+            className="grid grid-cols-1 gap-2.5 p-2.5 md:grid-cols-[minmax(330px,0.9fr)_minmax(220px,1fr)_auto] md:items-stretch"
+            style={{
+              borderRadius: "24px",
+              background: "rgba(25,20,16,0.74)",
+              border: "1px solid rgba(255,255,255,0.16)",
+              backdropFilter: "blur(18px)",
+              boxShadow: "0 20px 50px rgba(13,10,8,0.24)",
+            }}
+          >
+            <div
+              className="flex items-center justify-between gap-5 px-5 py-4 md:px-6"
+              style={{ borderRadius: "17px", background: "#f0e5d3", color: "#2c2419" }}
+            >
+              <div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.62rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "#8c6a3e" }}>
+                  {t("Даты ретрита")}
+                </p>
+                <p style={{ fontFamily: titleFont, fontSize: "clamp(2.7rem, 5vw, 4.2rem)", fontWeight: 600, letterSpacing: "-0.055em", lineHeight: 0.9, marginTop: 8 }}>
+                  15–21
+                </p>
               </div>
-              <div style={{ width: 20, height: "1px", background: "rgba(212,180,131,0.65)", flexShrink: 0 }} />
-              <div className="flex items-center gap-1.5 px-4" style={{ height: "100%" }}>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 400, color: "#fff", lineHeight: 1 }}>21</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 300, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1 }}>{t("сентября 2026")}</span>
+              <div className="flex-shrink-0 border-l pl-5" style={{ borderColor: "rgba(44,36,25,0.16)" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.13em", textTransform: "uppercase", lineHeight: 1.45 }}>
+                  {t("сентября")}
+                </p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.45rem", fontWeight: 500, lineHeight: 1, marginTop: 3 }}>
+                  2026
+                </p>
               </div>
             </div>
-            {/* CTA button */}
+
+            <div className="flex items-center justify-between gap-5 px-4 py-3 md:px-6">
+              <div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.66rem", fontWeight: 400, letterSpacing: "0.14em", textTransform: "uppercase", color: "#d9b67f" }}>
+                  {t("Грузия · Чёрное море")}
+                </p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.35rem, 2vw, 1.7rem)", fontWeight: 400, color: "#fff", lineHeight: 1.15, marginTop: 7 }}>
+                  {t("7 дней трансформации")}
+                </p>
+              </div>
+              <span className="hidden h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border text-white md:flex" style={{ borderColor: "rgba(255,255,255,0.18)", fontSize: "1rem" }} aria-hidden="true">
+                ↗
+              </span>
+            </div>
+
             <button
               onClick={() => scrollTo("pricing")}
+              className="min-h-14 rounded-[17px] px-7 py-4 transition-colors hover:bg-[#c39a63] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ead7b9] focus-visible:ring-offset-2 focus-visible:ring-offset-[#211a14]"
               style={{
-                height: 46,
-                paddingLeft: 22,
-                paddingRight: 22,
-                borderRadius: "100px",
                 background: "#b08d5e",
                 border: "none",
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "0.75rem",
-                fontWeight: 400,
+                fontSize: "0.72rem",
+                fontWeight: 500,
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 color: "#fff",
                 cursor: "pointer",
                 whiteSpace: "nowrap",
-                flexShrink: 0,
               }}
             >
               {t("Забронировать место")}
