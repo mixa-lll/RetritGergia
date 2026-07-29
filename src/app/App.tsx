@@ -507,17 +507,40 @@ export default function App() {
         }}
       >
         <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-          <button onClick={() => scrollTo("hero")} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 400, letterSpacing: "0.12em", color: scrolled ? "#2c2419" : "#fff", background: "none", border: "none", cursor: "pointer" }}>
-            {t("ВЫХОД ЕСТЬ")}
+          <button
+            onClick={() => scrollTo("hero")}
+            className="inline-flex flex-shrink-0 items-center gap-2.5 whitespace-nowrap py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4b483] focus-visible:ring-offset-2"
+            style={{
+              fontFamily: titleFont,
+              fontSize: "1.22rem",
+              fontWeight: 600,
+              letterSpacing: "0.035em",
+              lineHeight: 1,
+              color: scrolled ? "#2c2419" : "#fff",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              textShadow: scrolled ? "none" : "0 2px 14px rgba(20,16,12,0.24)",
+            }}
+          >
+            <span
+              className="h-2 w-2 flex-shrink-0 rounded-full"
+              style={{
+                background: scrolled ? "#b08d5e" : "#ead7b9",
+                boxShadow: scrolled ? "0 0 0 4px rgba(176,141,94,0.1)" : "0 0 0 4px rgba(234,215,185,0.14)",
+              }}
+              aria-hidden="true"
+            />
+            <span>{t("ВЫХОД ЕСТЬ")}</span>
           </button>
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-4 xl:gap-6">
             {navLinks.map(l => (
-              <button key={l.id} onClick={() => scrollTo(l.id)} style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.15em", textTransform: "uppercase", color: scrolled ? "#2c2419" : "rgba(255,255,255,0.85)", background: "none", border: "none", cursor: "pointer" }}>
+              <button key={l.id} onClick={() => scrollTo(l.id)} style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.15em", textTransform: "uppercase", color: scrolled ? "#2c2419" : "rgba(255,255,255,0.85)", background: "none", border: "none", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>
                 {l.label}
               </button>
             ))}
             <div
-              className="inline-flex items-center p-1"
+              className="inline-flex flex-shrink-0 items-center p-1"
               style={{
                 borderRadius: "999px",
                 border: scrolled ? "1px solid rgba(44,36,25,0.25)" : "1px solid rgba(255,255,255,0.35)",
@@ -546,7 +569,7 @@ export default function App() {
                 </button>
               ))}
             </div>
-            <button onClick={() => scrollTo("pricing")} className="px-5 py-2 transition-all duration-300" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", background: scrolled ? "#2c2419" : "rgba(255,255,255,0.15)", border: scrolled ? "1px solid #2c2419" : "1px solid rgba(255,255,255,0.4)", color: "#fff", borderRadius: "100px", cursor: "pointer" }}>
+            <button onClick={() => scrollTo("pricing")} className="flex-shrink-0 px-5 py-2 transition-all duration-300" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", background: scrolled ? "#2c2419" : "rgba(255,255,255,0.15)", border: scrolled ? "1px solid #2c2419" : "1px solid rgba(255,255,255,0.4)", color: "#fff", borderRadius: "100px", cursor: "pointer", whiteSpace: "nowrap" }}>
               {bookingLabel}
             </button>
           </div>
@@ -611,12 +634,12 @@ export default function App() {
           }}
         />
         <div
-          className="pointer-events-none absolute inset-3 rounded-[28px] border md:inset-5"
+          className="pointer-events-none absolute inset-x-3 bottom-3 top-[72px] rounded-[28px] border md:inset-x-5 md:bottom-5 md:top-20"
           style={{ borderColor: "rgba(255,255,255,0.22)" }}
           aria-hidden="true"
         />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-between px-6 pb-5 pt-20 md:px-10 md:pb-8 md:pt-24">
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-between px-5 pb-5 pt-20 md:px-5 md:pb-8 md:pt-24">
           <div className="max-w-5xl">
             <div className="mb-5 flex flex-wrap items-center gap-2">
               <span
