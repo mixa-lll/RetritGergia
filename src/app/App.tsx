@@ -299,11 +299,15 @@ const EN_TRANSLATIONS: Record<string, string> = {
   "Выезд участников": "Participants departure",
   "Участие в ретрите": "Retreat participation",
   "Цена участия": "Participation price",
-  "150 000 ₽": "150,000 ₽",
-  "130 000 ₽": "130,000 ₽",
-  "при оплате до 1 августа": "when paid before August 1",
+  "1 600 $": "$1,600",
+  "1 350 $": "$1,350",
+  "при оплате до 15 августа": "when paid by August 15",
+  "Раннее бронирование": "Early booking",
+  "Размещение": "Accommodation",
   "Размещение двухместное": "Double accommodation",
-  "Доплата за одноместное размещение — 30 000 ₽": "Single accommodation supplement — 30,000 ₽",
+  "включено": "included",
+  "Одноместное размещение": "Single accommodation",
+  "+ 300 $": "+ $300",
   "+ авиаперелет": "+ flight",
   "Что входит в стоимость": "What is included",
   "Трансфер по программе": "Program transfers",
@@ -1376,30 +1380,75 @@ export default function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           {/* Price hero card */}
-          <div className="md:col-span-2 relative overflow-hidden flex flex-col justify-between p-9" style={{ borderRadius: R, background: "#2c2419", minHeight: 320 }}>
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: "cover", backgroundPosition: "top", borderRadius: R }} />
+          <div
+            className="md:col-span-2 relative overflow-hidden flex flex-col justify-between p-6 sm:p-8 md:p-9"
+            style={{
+              borderRadius: R,
+              background: "linear-gradient(150deg, #33291f 0%, #241d17 52%, #191511 100%)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 18px 44px rgba(44,36,25,0.16)",
+              minHeight: 420,
+            }}
+          >
+            <div
+              className="absolute -top-24 -right-24 h-64 w-64 rounded-full"
+              style={{ background: "radial-gradient(circle, rgba(201,162,109,0.2) 0%, rgba(201,162,109,0) 70%)" }}
+              aria-hidden="true"
+            />
             <div className="relative z-10">
-              <Pill light>{t("Цена участия")}</Pill>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.7rem, 3vw, 2.2rem)", fontWeight: 300, color: "rgba(255,255,255,0.52)", lineHeight: 1, marginTop: 16, textDecoration: "line-through", textDecorationThickness: "1px" }}>
-                {t("150 000 ₽")}
-              </p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3rem, 5vw, 4.5rem)", fontWeight: 400, color: "#fff", lineHeight: 1, marginTop: 8 }}>
-                {t("130 000 ₽")}
-              </p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#d4b483", fontStyle: "italic", marginTop: 8 }}>
-                {t("при оплате до 1 августа")}
-              </p>
-              <div className="mt-5 flex flex-col gap-2">
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(255,255,255,0.78)", lineHeight: 1.45 }}>
-                  {t("Размещение двухместное")}
-                </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "rgba(255,255,255,0.56)", lineHeight: 1.45 }}>
-                  * {t("Доплата за одноместное размещение — 30 000 ₽")}
+              <div className="flex items-center justify-between gap-3">
+                <Pill light>{t("Цена участия")}</Pill>
+                <span
+                  className="hidden sm:inline-flex items-center rounded-full px-3 py-1"
+                  style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.62rem", fontWeight: 400, letterSpacing: "0.13em", textTransform: "uppercase", color: "#e3c18d", border: "1px solid rgba(227,193,141,0.28)", background: "rgba(227,193,141,0.08)" }}
+                >
+                  {t("Раннее бронирование")}
+                </span>
+              </div>
+
+              <div className="mt-7 flex items-end gap-3">
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 3vw, 2rem)", fontWeight: 400, color: "rgba(255,255,255,0.42)", lineHeight: 1, textDecoration: "line-through", textDecorationThickness: "1px", textDecorationColor: "rgba(227,193,141,0.8)" }}>
+                  {t("1 600 $")}
                 </p>
               </div>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3.5rem, 7vw, 5rem)", fontWeight: 500, color: "#fff", lineHeight: 0.95, marginTop: 10, letterSpacing: "-0.025em" }}>
+                {t("1 350 $")}
+              </p>
+
+              <div
+                className="mt-5 flex items-center gap-3 px-4 py-3"
+                style={{ borderRadius: "14px", background: "rgba(201,162,109,0.14)", border: "1px solid rgba(227,193,141,0.22)" }}
+              >
+                <span className="h-2 w-2 flex-shrink-0 rounded-full" style={{ background: "#d7af74", boxShadow: "0 0 0 4px rgba(215,175,116,0.1)" }} aria-hidden="true" />
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 400, color: "#f0d6ad", lineHeight: 1.4, letterSpacing: "0.035em" }}>
+                  {t("при оплате до 15 августа")}
+                </p>
+              </div>
+
+              <div className="mt-6 overflow-hidden" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.055)" }}>
+                <p className="px-4 pt-3 pb-2" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.62rem", fontWeight: 400, color: "rgba(255,255,255,0.46)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                  {t("Размещение")}
+                </p>
+                <div className="flex items-center justify-between gap-4 px-4 py-3" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "rgba(255,255,255,0.78)", lineHeight: 1.35 }}>
+                    {t("Размещение двухместное")}
+                  </p>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.68rem", fontWeight: 500, color: "#d9b67f", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+                    {t("включено")}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between gap-4 px-4 py-3" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 300, color: "rgba(255,255,255,0.78)", lineHeight: 1.35 }}>
+                    {t("Одноместное размещение")}
+                  </p>
+                  <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", fontWeight: 600, color: "#fff", whiteSpace: "nowrap" }}>
+                    {t("+ 300 $")}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="relative z-10 mt-8">
-              <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="block text-center py-3.5 transition-colors hover:bg-[#9a7a4e]" style={{ background: "#b08d5e", borderRadius: "14px", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>
+            <div className="relative z-10 mt-7">
+              <a href="https://t.me/veravenera14" target="_blank" rel="noopener noreferrer" className="block text-center py-3.5 transition-colors hover:bg-[#c29a64] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e3c18d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#241d17]" style={{ background: "#b08d5e", borderRadius: "14px", fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>
                 {t("Забронировать место")}
               </a>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.35)", textAlign: "center", marginTop: 10, letterSpacing: "0.05em" }}>
@@ -1409,8 +1458,8 @@ export default function App() {
           </div>
 
           {/* Included grid */}
-          <div className="md:col-span-3 grid grid-cols-2 gap-2 sm:gap-3">
-            <div className="col-span-2 mb-1">
+          <div className="md:col-span-3 grid grid-cols-1 min-[360px]:grid-cols-2 gap-2 sm:gap-3">
+            <div className="min-[360px]:col-span-2 mb-1">
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.4rem, 3vw, 1.75rem)", fontWeight: 400, color: "#2c2419", letterSpacing: "0.01em" }}>
                 {t("Что входит в стоимость")}
               </p>
